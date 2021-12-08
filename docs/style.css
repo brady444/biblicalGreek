@@ -29,12 +29,22 @@ button {
 	transition: .25s background-color;
 }
 
-button:hover {
-	background-color: #2A2A2A;
-}
-
-button:active {
-	background-color: #222;
+@media (hover: hover) {
+	button:hover {
+		background-color: #2A2A2A;
+	}
+	
+	button:active {
+		background-color: #222;
+	}
+	
+	.paradigmElement > p:hover {
+		background-color: #555;
+	}
+	
+	.paradigmElement > p:active {
+		background-color: #444;
+	}
 }
 
 .removeOnLoad {
@@ -102,10 +112,6 @@ button:active {
 	user-select: none;
 	transition: .25s background-color;
 	cursor: pointer;
-}
-
-.paradigmElement > p:hover {
-	background-color: #555;
 }
 
 .answered {
