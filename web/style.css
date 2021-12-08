@@ -1,0 +1,134 @@
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: #333;
+}
+
+p {
+	margin: 0;
+	padding: 10px;
+	color: white;
+	font-size: 4vmin;
+	font-family: Times New Roman;
+}
+
+button {
+	padding: 10px;
+	border: 0;
+	outline: 0;
+	cursor: pointer;
+	background-color: #222;
+	color: white;
+	font-size: 3.5vmin;
+	font-family: Times New Roman;
+	transition: .25s background-color;
+}
+
+button:hover {
+	background-color: #2A2A2A;
+}
+
+button:active {
+	background-color: #222;
+}
+
+.removeOnLoad {
+	transition: none !important;
+}
+
+.container {
+	width: 100%;
+	height: 100%;
+}
+
+.flexRowCenter {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.flexRowEnd {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.flexColumnCenter {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.underlined {
+	text-decoration: underline;
+}
+
+.sectionButton {
+	width: 45vmin;
+	height: 7.5vmin;
+	font-size: 4vmin;
+}
+
+.paradigmRow {
+	width: 100%;
+	gap: 10px;
+}
+
+.paradigmRow > p, .paradigmRow > div {
+	flex: 1;
+}
+
+.paradigmLabel {
+	padding: 0;
+	font-size: 2.25vmin;
+	white-space: pre;
+}
+
+.paradigmElement > p {
+	padding: 0;
+	width: 8vmin;
+	height: 8vmin;
+	font-size: 4vmin;
+	text-align: center;
+	background-color: #444;
+	user-select: none;
+	transition: .25s background-color;
+	cursor: pointer;
+}
+
+.paradigmElement > p:hover {
+	background-color: #555;
+}
+
+.answered {
+	background-color: unset !important;
+	cursor: unset !important;
+}
+
+.incorrect {
+	background-color: #d41c1c !important;
+}
+
+#paradigm {
+	width: 90vmin;
+	max-height: 90vmin;
+	padding: 15px;
+	gap: 10px;
+	background-color: #222;
+}
+
+#sectionButtons {
+	gap: 10px;
+}
+
+#question {
+	padding: 20px;
+}
