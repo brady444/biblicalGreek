@@ -6,36 +6,42 @@ html, body {
 }
 
 body {
-	background-color: #333;
+	background-color: #222;
 }
 
-p {
+p, a, h1 {
 	margin: 0;
 	padding: 10px;
 	color: white;
-	font-size: 4vmin;
+	font-size: 25px;
 	font-family: Times New Roman;
+	font-weight: normal;
+	text-decoration: none;
 }
 
 button {
-	padding: 10px;
+	padding: 15px;
 	border: 0;
 	outline: 0;
 	cursor: pointer;
-	background-color: #222;
+	background-color: #333;
 	color: white;
-	font-size: 3.5vmin;
+	font-size: 3vmin;
 	font-family: Times New Roman;
 	transition: .25s background-color;
 }
 
+h1 {
+	font-size: 35px;
+}
+
 @media (hover: hover) {
 	button:hover {
-		background-color: #2A2A2A;
+		background-color: #3A3A3A;
 	}
 	
 	button:active {
-		background-color: #222;
+		background-color: #333;
 	}
 	
 	.paradigmElement > p:hover {
@@ -82,9 +88,7 @@ button {
 }
 
 .sectionButton {
-	width: 45vmin;
-	height: 7.5vmin;
-	font-size: 4vmin;
+	width: 100%;
 }
 
 .paradigmRow {
@@ -123,15 +127,29 @@ button {
 	background-color: #d41c1c !important;
 }
 
+#header {
+	width: 100%;
+	background-color: #111;
+}
+
+#header > a {
+	font-size: 23px;
+}
+
+#paradigms {
+	flex-grow: 1;
+}
+
 #paradigm {
 	width: 90vmin;
 	max-height: 90vmin;
 	padding: 15px;
 	gap: 10px;
-	background-color: #222;
+	background-color: #2A2A2A;
 }
 
 #sectionButtons {
+	flex-grow: 1;
 	gap: 10px;
 }
 
