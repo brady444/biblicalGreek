@@ -140,7 +140,7 @@ const setupElements = () => {
 };
 
 for (let i = 0; i < paradigmElements.length; i++) {
-	paradigmElements [i].addEventListener ("click", () => {
+	paradigmElements [i].firstElementChild.addEventListener ("click", () => {
 		if (paradigmElements [i].firstElementChild.classList.contains ("answered")) {
 			return;
 		}

@@ -113,7 +113,6 @@ h1 {
 	font-size: 4vmin;
 	text-align: center;
 	background-color: #444;
-	user-select: none;
 	transition: .25s background-color;
 	cursor: pointer;
 }
