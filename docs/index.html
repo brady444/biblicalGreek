@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta charset = "utf-8">
+		
+		<meta name = "viewport" content = "width=device-width, initial-scale=1">
+		
 		<title>Biblical Greek</title>
 		
 		<link rel = "icon" type = "image/png" href = "res/icon.png" />
@@ -8,162 +12,7 @@
 		<link rel = "stylesheet" type = "text/css" href = "style.css" />
 	</head>
 	
-	<body class = "removeOnLoad flexColumnCenter">
-		<div id = "header" class = "flexRowCenter">
-			<a href = "/">Biblical Greek</a>
-		</div>
-		
-		<div id = "sectionButtons" class = "flexColumnCenter">
-			<h1>Paradigms</h1>
-			
-			<button id = "caseEndingsParadigmButton" class = "sectionButton">Case Endings</button>
-			<button id = "articleParadigmButton" class = "sectionButton">The Article</button>
-			<button id = "thirdPersonPronounParadigmButton" class = "sectionButton">The 3rd Person Pronoun</button>
-		</div>
-		
-		<div id = "paradigms" class = "flexColumnCenter" style = "display: none;">
-			<div id = "paradigm" class = "flexColumnCenter">
-				<div class = "paradigmRow flexRowCenter">
-					<p class = "paradigmLabel"></p>
-					<p class = "paradigmLabel flexRowCenter">Masculine (2nd)</p>
-					<p class = "paradigmLabel flexRowCenter">Feminine (1st)</p>
-					<p class = "paradigmLabel flexRowCenter">Neuter (2nd)</p>
-				</div>
-				
-				<div class = "paradigmRow flexRowCenter">
-					<p class = "paradigmLabel flexRowEnd">Nominative Singular</p>
-					
-					<div class = "paradigmElement flexRowCenter">
-						<p class = "flexRowCenter"></p>
-					</div>
-					
-					<div class = "paradigmElement flexRowCenter">
-						<p class = "flexRowCenter"></p>
-					</div>
-					
-					<div class = "paradigmElement flexRowCenter">
-						<p class = "flexRowCenter"></p>
-					</div>
-				</div>
-				
-				<div class = "paradigmRow flexRowCenter">
-					<p class = "paradigmLabel flexRowEnd">Genitive Singular</p>
-					
-					<div class = "paradigmElement flexRowCenter">
-						<p class = "flexRowCenter"></p>
-					</div>
-					
-					<div class = "paradigmElement flexRowCenter">
-						<p class = "flexRowCenter"></p>
-					</div>
-					
-					<div class = "paradigmElement flexRowCenter">
-						<p class = "flexRowCenter"></p>
-					</div>
-				</div>
-				
-				<div class = "paradigmRow flexRowCenter">
-					<p class = "paradigmLabel flexRowEnd">Dative Singular</p>
-					
-					<div class = "paradigmElement flexRowCenter">
-						<p class = "flexRowCenter"></p>
-					</div>
-					
-					<div class = "paradigmElement flexRowCenter">
-						<p class = "flexRowCenter"></p>
-					</div>
-					
-					<div class = "paradigmElement flexRowCenter">
-						<p class = "flexRowCenter"></p>
-					</div>
-				</div>
-				
-				<div class = "paradigmRow flexRowCenter">
-					<p class = "paradigmLabel flexRowEnd">Accusative Singular</p>
-					
-					<div class = "paradigmElement flexRowCenter">
-						<p class = "flexRowCenter"></p>
-					</div>
-					
-					<div class = "paradigmElement flexRowCenter">
-						<p class = "flexRowCenter"></p>
-					</div>
-					
-					<div class = "paradigmElement flexRowCenter">
-						<p class = "flexRowCenter"></p>
-					</div>
-				</div>
-				
-				<div class = "paradigmRow flexRowCenter">
-					<p class = "paradigmLabel flexRowEnd">Nominative Plural</p>
-					
-					<div class = "paradigmElement flexRowCenter">
-						<p class = "flexRowCenter"></p>
-					</div>
-					
-					<div class = "paradigmElement flexRowCenter">
-						<p class = "flexRowCenter"></p>
-					</div>
-					
-					<div class = "paradigmElement flexRowCenter">
-						<p class = "flexRowCenter"></p>
-					</div>
-				</div>
-				
-				<div class = "paradigmRow flexRowCenter">
-					<p class = "paradigmLabel flexRowEnd">Genitive Plural</p>
-					
-					<div class = "paradigmElement flexRowCenter">
-						<p class = "flexRowCenter"></p>
-					</div>
-					
-					<div class = "paradigmElement flexRowCenter">
-						<p class = "flexRowCenter"></p>
-					</div>
-					
-					<div class = "paradigmElement flexRowCenter">
-						<p class = "flexRowCenter"></p>
-					</div>
-				</div>
-				
-				<div class = "paradigmRow flexRowCenter">
-					<p class = "paradigmLabel flexRowEnd">Dative Plural</p>
-					
-					<div class = "paradigmElement flexRowCenter">
-						<p class = "flexRowCenter"></p>
-					</div>
-					
-					<div class = "paradigmElement flexRowCenter">
-						<p class = "flexRowCenter"></p>
-					</div>
-					
-					<div class = "paradigmElement flexRowCenter">
-						<p class = "flexRowCenter"></p>
-					</div>
-				</div>
-				
-				<div class = "paradigmRow flexRowCenter">
-					<p class = "paradigmLabel flexRowEnd">Accusative Plural</p>
-					
-					<div class = "paradigmElement flexRowCenter">
-						<p class = "flexRowCenter"></p>
-					</div>
-					
-					<div class = "paradigmElement flexRowCenter">
-						<p class = "flexRowCenter"></p>
-					</div>
-					
-					<div class = "paradigmElement flexRowCenter">
-						<p class = "flexRowCenter"></p>
-					</div>
-				</div>
-			</div>
-			
-			<div id = "question" class = "flexRowCenter">
-				<h1 id = "questionText">Where does <span id = "questionElement"></span> go?</h1>
-			</div>
-		</div>
-		
-		<script src = "main.js"></script>
+	<body class = "flexColumnCenter">
+		<script type = "module" src = "main.js"></script>
 	</body>
 </html>

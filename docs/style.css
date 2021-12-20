@@ -1,3 +1,7 @@
+::-webkit-scrollbar {
+	display: none;
+}
+
 html, body {
 	width: 100%;
 	height: 100%;
@@ -9,30 +13,16 @@ body {
 	background-color: #222;
 }
 
-p, a, h1 {
+p, a {
 	margin: 0;
-	padding: 10px;
 	color: white;
-	font-size: 25px;
 	font-family: Times New Roman;
 	font-weight: normal;
 	text-decoration: none;
 }
 
-button {
-	padding: 15px;
-	border: 0;
-	outline: 0;
+a {
 	cursor: pointer;
-	background-color: #333;
-	color: white;
-	font-size: 3vmin;
-	font-family: Times New Roman;
-	transition: .25s background-color;
-}
-
-h1 {
-	font-size: 35px;
 }
 
 @media (hover: hover) {
@@ -53,13 +43,40 @@ h1 {
 	}
 }
 
-.removeOnLoad {
-	transition: none !important;
+.smallPadding {
+	padding: 10px;
 }
 
-.container {
-	width: 100%;
-	height: 100%;
+.mediumPadding {
+	padding: 15px;
+}
+
+.largePadding {
+	padding: 20px;
+}
+
+.mediumGap {
+	gap: 10px;
+}
+
+.largeGap {
+	gap: 50px;
+}
+
+.smallFont {
+	font-size: 18px;
+}
+
+.mediumFont {
+	font-size: 23px;
+}
+
+.largeFont {
+	font-size: 35px;
+}
+
+.extraLargeFont {
+	font-size: 35px;
 }
 
 .flexRowCenter {
@@ -69,11 +86,11 @@ h1 {
 	align-items: center;
 }
 
-.flexRowEnd {
+.flexRowCenterStart {
 	display: flex;
 	flex-direction: row;
-	justify-content: flex-end;
-	align-items: center;
+	justify-content: center;
+	align-items: flex-start;
 }
 
 .flexColumnCenter {
@@ -83,17 +100,64 @@ h1 {
 	align-items: center;
 }
 
+.flexColumnStartCenter {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+}
+
 .underlined {
 	text-decoration: underline;
 }
 
-.sectionButton {
+.container {
 	width: 100%;
+	flex-grow: 1;
+	overflow-y: scroll;
+	box-sizing: border-box;
+}
+
+.sectionGroup {
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.sectionGroup > div {
+	flex-wrap: wrap;
+	margin-top: 10px;
+}
+
+.sectionGroup:nth-child(even) {
+	background: #2C2C2C;
+}
+
+.sectionLink {
+	color: #AAA;
+	transition: color .25s;
+}
+
+.sectionLink:hover {
+	color: white;
+}
+
+#header {
+	width: 100%;
+	background-color: #111;
+}
+
+.paradigmImage {
+	width: 50%;
+}
+
+.paradigm {
+	width: 90vmin;
+	max-height: 90vmin;
+	background-color: #2A2A2A;
 }
 
 .paradigmRow {
 	width: 100%;
-	gap: 10px;
 }
 
 .paradigmRow > p, .paradigmRow > div {
@@ -104,6 +168,10 @@ h1 {
 	padding: 0;
 	font-size: 2.25vmin;
 	white-space: pre;
+}
+
+.paradigmLabel:first-child {
+	justify-content: flex-end;
 }
 
 .paradigmElement > p {
@@ -124,34 +192,4 @@ h1 {
 
 .incorrect {
 	background-color: #d41c1c !important;
-}
-
-#header {
-	width: 100%;
-	background-color: #111;
-}
-
-#header > a {
-	font-size: 23px;
-}
-
-#paradigms {
-	flex-grow: 1;
-}
-
-#paradigm {
-	width: 90vmin;
-	max-height: 90vmin;
-	padding: 15px;
-	gap: 10px;
-	background-color: #2A2A2A;
-}
-
-#sectionButtons {
-	flex-grow: 1;
-	gap: 10px;
-}
-
-#question {
-	padding: 20px;
 }

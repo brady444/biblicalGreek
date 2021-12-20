@@ -1,228 +1,217 @@
 "use strict";
 
-const sectionButtons = document.getElementById ("sectionButtons");
-const paradigms = document.getElementById ("paradigms");
+import { render, html } from "https://unpkg.com/uhtml?module";
 
-const caseEndingsParadigmButton = document.getElementById ("caseEndingsParadigmButton");
-const articleParadigmButton = document.getElementById ("articleParadigmButton");
-const thirdPersonPronounParadigmButton = document.getElementById ("thirdPersonPronounParadigmButton");
+import constants from "./constants.js";
+import utilities from "./utilities.js";
 
-const paradigm = document.getElementById ("paradigm");
+const Header = () => html
+	`<div id = "header" class = "flexRowCenter mediumFont">
+		<a class = "smallPadding" onclick = ${ () => {
+			navigate ("");
+		} }>Biblical Greek</a>
+	</div>`
+;
 
-const questionText = document.getElementById ("questionText");
-const questionElement = document.getElementById ("questionElement");
-
-const paradigmElements = document.getElementsByClassName ("paradigmElement");
-
-const caseEndings = [
-	{text: "ς", underlined: false},
-	{text: "–", underlined: false},
-	{text: "ν", underlined: false},
-	{text: "υ", underlined: false},
-	{text: "ς", underlined: false},
-	{text: "υ", underlined: false},
-	{text: "ͺ", underlined: false},
-	{text: "ͺ", underlined: false},
-	{text: "ͺ", underlined: false},
-	{text: "ν", underlined: false},
-	{text: "ν", underlined: false},
-	{text: "ν", underlined: false},
-	{text: "ι", underlined: false},
-	{text: "ι", underlined: false},
-	{text: "α", underlined: true},
-	{text: "ων", underlined: true},
-	{text: "ων", underlined: true},
-	{text: "ων", underlined: true},
-	{text: "ις", underlined: false},
-	{text: "ις", underlined: false},
-	{text: "ις", underlined: false},
-	{text: "υς", underlined: false},
-	{text: "ς", underlined: false},
-	{text: "α", underlined: true}
-];
-
-const articles = [
-	{text: "ὁ"},
-	{text: "ἡ"},
-	{text: "τό"},
-	{text: "τοῦ"},
-	{text: "τῆς"},
-	{text: "τοῦ"},
-	{text: "τῷ"},
-	{text: "τῇ"},
-	{text: "τῷ"},
-	{text: "τόν"},
-	{text: "τήν"},
-	{text: "τό"},
-	{text: "οἱ"},
-	{text: "αἱ"},
-	{text: "τά"},
-	{text: "τῶν"},
-	{text: "τῶν"},
-	{text: "τῶν"},
-	{text: "τοῖς"},
-	{text: "ταῖς"},
-	{text: "τοῖς"},
-	{text: "τούς"},
-	{text: "τάς"},
-	{text: "τά"}
-];
-
-const thirdPersonPronouns = [
-	{text: "αὐτός"},
-	{text: "αὐτή"},
-	{text: "αὐτό"},
-	{text: "αὐτοῦ"},
-	{text: "αὐτῆς"},
-	{text: "αὐτοῦ"},
-	{text: "αὐτῷ"},
-	{text: "αὐτῇ"},
-	{text: "αὐτῷ"},
-	{text: "αὐτόν"},
-	{text: "αὐτήν"},
-	{text: "αὐτό"},
-	{text: "αὐτοί"},
-	{text: "αὐταί"},
-	{text: "αὐτά"},
-	{text: "αὐτῶν"},
-	{text: "αὐτῶν"},
-	{text: "αὐτῶν"},
-	{text: "αὐτοῖς"},
-	{text: "αὐταῖς"},
-	{text: "αὐτοῖς"},
-	{text: "αὐτούς"},
-	{text: "αὐτάς"},
-	{text: "αὐτά"}
-];
-
-let answers = [];
-
-let remainingAnswers = [];
-
-let currentAnswerIndex;
-
-const randomInteger = (minimum, maximum) => {
-	return Math.floor (Math.random () * (maximum - minimum + 1)) + minimum;
-};
-
-const clearParadigmElements = () => {
-	for (let i = 0; i < paradigmElements.length; i++) {
-		paradigmElements [i].firstElementChild.textContent = "";
+const SectionGroup = (name, content) => html
+	`<div class = "sectionGroup flexColumnCenter largePadding">
+		<p class = "largeFont">${ name }</p>
 		
-		paradigmElements [i].firstElementChild.classList.remove ("answered");
-	}
-};
+		<div class = "flexRowCenterStart largeGap">${ content }</div>
+	</div>`
+;
 
-const updateQuestion = () => {
-	if (remainingAnswers.length === 0) {
-		remainingAnswers = [...answers];
+const Section = (name, content) => html
+	`<div class = "mediumGap flexColumnCenter">
+		${ SectionHeader (name) }
 		
-		clearParadigmElements ();
-	}
-	
-	currentAnswerIndex = randomInteger (0, remainingAnswers.length - 1);
-	
-	const caseEnding = remainingAnswers [currentAnswerIndex];
-	
-	questionElement.innerText = caseEnding.text;
-	
-	questionElement.classList.remove ("underlined");
-	
-	if (caseEnding.underlined) {
-		questionElement.classList.add ("underlined");
-	}
-};
+		${ content }
+	</div>`
+;
 
-const setupElements = () => {
-	for (let i = 0; i < paradigmElements.length; i++) {
-		paradigmElements [i].answer = answers [i].text;
-	}
-};
+const SectionHeader = text => html`<p class = "mediumFont">${ text }</p>`;
 
-for (let i = 0; i < paradigmElements.length; i++) {
-	paradigmElements [i].firstElementChild.addEventListener ("click", () => {
-		if (paradigmElements [i].firstElementChild.classList.contains ("answered")) {
-			return;
-		}
+const SectionLink = (text, onclick, href) => html`<a class = "sectionLink smallFont" onclick = ${ onclick } href = ${ href }>${ text }</a>`;
+
+const Paradigm = elements => html
+	`<div class = "paradigm flexColumnCenter mediumPadding mediumGap">
+		<div class = "paradigmRow flexRowCenter mediumGap">
+			${ ParadigmLabel () }
+			${ ParadigmLabel ("Masculine (2nd)") }
+			${ ParadigmLabel ("Feminine (1st)") }
+			${ ParadigmLabel ("Neuter (2nd)") }
+		</div>
 		
-		//if answer is correct
-		if (paradigmElements [i].answer === remainingAnswers [currentAnswerIndex].text) {
-			paradigmElements [i].firstElementChild.textContent = remainingAnswers [currentAnswerIndex].text;
-			
-			//remove all incorrect indicators
-			for (let j = 0; j < paradigmElements.length; j++) {
-				paradigmElements [j].firstElementChild.classList.remove ("incorrect");
+		${ [
+			ParadigmRow ("Nominative Singular", [elements [0], elements [1], elements [2]]),
+			ParadigmRow ("Genitive Singular", [elements [3], elements [4], elements [5]]),
+			ParadigmRow ("Dative Singular", [elements [6], elements [7], elements [8]]),
+			ParadigmRow ("Accusative Singular", [elements [9], elements [10], elements [11]]),
+			ParadigmRow ("Nominative Plural", [elements [12], elements [13], elements [14]]),
+			ParadigmRow ("Genitive Plural", [elements [15], elements [16], elements [17]]),
+			ParadigmRow ("Dative Plural", [elements [18], elements [19], elements [20]]),
+			ParadigmRow ("Accusative Plural", [elements [21], elements [22], elements [23]])
+		] }
+	</div>`
+;
+
+const ParadigmRow = (labelText, row) => html
+	`<div class = "paradigmRow flexRowCenter">
+		${ ParadigmLabel (labelText) }
+		
+		${ row.map (element => ParadigmElement (element)) }
+	</div>`
+;
+
+const ParadigmLabel = text => html
+	`<p class = "paradigmLabel flexRowCenter">${ text }</p>`
+;
+
+const ParadigmElement = element => html
+	`<div class = "paradigmElement flexRowCenter">
+		<p class = ${ "flexRowCenter" + (element.answered ? (element.underlined ? " answered underlined" : " answered") : (element.incorrect ? " incorrect" : "")) } onclick = ${ () => {
+			if (element.answered) {
+				return;
 			}
 			
-			paradigmElements [i].classList.remove ("underlined");
-			
-			if (remainingAnswers [currentAnswerIndex].underlined === true) {
-				paradigmElements [i].firstElementChild.classList.add ("underlined");
+			if (pageData.remainingElements [pageData.questionElementIndex].text === element.text) {
+				element.answered = true;
+				
+				for (let i = 0; i < pageData.currentElements.length; i++) {
+					pageData.currentElements [i].incorrect = false;
+				}
+				
+				pageData.remainingElements.splice (pageData.questionElementIndex, 1);
+				
+				if (pageData.remainingElements.length < 1) {
+					pages [currentPage].setup ({
+						elements: pageData.elements
+					});
+				}
+				
+				else {
+					pageData.questionElementIndex = utilities.randomInteger (0, pageData.remainingElements.length - 1);
+				}
 			}
 			
-			paradigmElements [i].firstElementChild.classList.add ("answered");
+			else {
+				element.incorrect = true;
+			}
 			
-			remainingAnswers.splice (currentAnswerIndex, 1);
+			update ();
+		} }>${ element.answered ? element.text : null }</p>
+	</div>`
+;
+
+const Question = element => html
+	`<div class = "flexRowCenter">
+		<p class = "largePadding extraLargeFont">Where does <span id = "questionElement" class = ${ element.underlined ? "underlined" : null }>${ element.text }</span> go?</p>
+	</div>`
+;
+
+const navigate = (page, data) => {
+	currentPage = page;
+	
+	//reset page data
+	pageData = {};
+	
+	if (pages [currentPage].setup !== undefined) {
+		pages [currentPage].setup (data);
+	}
+	
+	update ();
+	
+	history.pushState (null, null);
+};
+
+let currentPage = "";
+let pageData = {};
+
+const pages = {
+	"": {
+		content: () => html
+		`<div id = "sections" class = "container flexColumnStartCenter">
+			${ SectionGroup ("Resources", [
+				Section ("Bill Mounce", [
+					SectionLink ("BillMounce.com", null, "https://billmounce.com"),
+					
+					SectionLink ("Greek Dictionary", null, "https://www.billmounce.com/greek-dictionary"),
+					
+					SectionLink ("Workbook Answer Key", null, "http://doxa.billmounce.com.s3.amazonaws.com/bbg4_answer_key.pdf")
+				]),
+				
+				Section ("Greek New Testament", [
+					SectionLink ("GNTReader", null, "https://www.gntreader.com"),
+					
+					SectionLink ("Abarim Publications", null, "https://www.abarim-publications.com/Interlinear-New-Testament")
+				]),
+				
+				Section ("Vocabulary", [
+					SectionLink ("Spreadsheet", null, "https://docs.google.com/spreadsheets/d/1phUbF1zjwF5YpiVExSZ7FZeG_XsgfkLgpF7ROgaLPCo")
+				]),
+				
+				Section ("Paradigms", [
+					SectionLink ("Images", () => navigate ("resourcesParadigms"))
+				]),
+				
+				Section ("Other", [
+					SectionLink ("Windows 10 Typing Guide", null, "https://www.ctsfw.edu/wp-content/uploads/2016/02/Greek-Unicode-Keyboard-Input-Windows-10.pdf")
+				])
+			]) }
 			
-			updateQuestion ();
-		}
+			${ SectionGroup ("Practice", [
+				Section ("Quizlet", [
+					SectionLink ("Vocabulary", null, "https://quizlet.com/brady2384765/folders/biblical-greek-vocabulary"),
+					
+					SectionLink ("Parsing", null, "https://quizlet.com/brady2384765/folders/biblical-greek-parsing")
+				]),
+				
+				Section ("Paradigms", constants.paradigms.map (paradigm => SectionLink (paradigm.name, () => {
+					navigate ("practiceParadigms", {
+						elements: paradigm.elements
+					});
+				})))
+			]) }
+		</div>`
+	},
+	
+	resourcesParadigms: {
+		content: () => html
+			`<div class = "container flexColumnStartCenter largePadding mediumGap">
+				${ constants.paradigms.map (paradigm => html`<img class = "paradigmImage" src = ${ paradigm.imageSrc } />`) }
+			</div>`
+	},
+	
+	practiceParadigms: {
+		setup: data => {
+			pageData.elements = data.elements;
+			pageData.currentElements = JSON.parse (JSON.stringify (data.elements));
+			pageData.remainingElements = [...pageData.currentElements];
+			
+			pageData.questionElementIndex = utilities.randomInteger (0, pageData.remainingElements.length - 1);
+		},
 		
-		//if answer is incorrect
-		else {
-			paradigmElements [i].firstElementChild.classList.add ("incorrect");
-		}
-	});
-}
+		content: () => html
+			`<div class = "container flexColumnCenter">
+				${ Paradigm (pageData.currentElements) }
+				
+				${ Question (pageData.remainingElements [pageData.questionElementIndex], true) }
+			</div>`
+	}
+};
 
-caseEndingsParadigmButton.addEventListener ("click", () => {
-	history.pushState (null, null);
-	
-	sectionButtons.style.display = "none";
-	paradigms.style.display = "";
-	
-	clearParadigmElements ();
-	
-	answers = [...caseEndings];
-	
-	setupElements ();
-	
-	updateQuestion ();
-});
+const update = () => {
+	render (document.body, html
+		`
+		${ Header () }
+		
+		${ pages [currentPage].content () }
+		`
+	);
+};
 
-articleParadigmButton.addEventListener ("click", () => {
-	history.pushState (null, null);
-	
-	sectionButtons.style.display = "none";
-	paradigms.style.display = "";
-	
-	clearParadigmElements ();
-	
-	answers = [...articles];
-	
-	setupElements ();
-	
-	updateQuestion ();
-});
-
-thirdPersonPronounParadigmButton.addEventListener ("click", () => {
-	history.pushState (null, null);
-	
-	sectionButtons.style.display = "none";
-	paradigms.style.display = "";
-	
-	clearParadigmElements ();
-	
-	answers = [...thirdPersonPronouns];
-	
-	setupElements ();
-	
-	updateQuestion ();
-});
-
-window.addEventListener ("load", () => {
-	document.body.classList.remove ("removeOnLoad");
-});
+update ();
 
 window.addEventListener ("popstate", () => {
-	location.href = "/";
+	navigate ("");
 });
