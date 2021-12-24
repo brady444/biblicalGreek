@@ -48,6 +48,14 @@ export default {
 				SectionLink ("Parsing", null, "https://quizlet.com/brady2384765/folders/biblical-greek-parsing")
 			]),
 			
+			Section ("Parsing", [
+				SectionLink ("Nouns", () => {
+					navigate ("practiceParsing", {
+						parsingForms: constants.parsingForms.nouns
+					});
+				})
+			]),
+			
 			Section ("Paradigms", constants.paradigms.map (paradigm => SectionLink (paradigm.name, () => {
 				navigate ("practiceParadigms", {
 					elements: paradigm.elements

@@ -12,6 +12,7 @@ import {
 window.pages = {
 	main: (await import ("./pages/main.js")).default,
 	resourcesParadigms: (await import ("./pages/resourcesParadigms.js")).default,
+	practiceParsing: (await import ("./pages/practiceParsing.js")).default,
 	practiceParadigms: (await import ("./pages/practiceParadigms.js")).default
 };
 
