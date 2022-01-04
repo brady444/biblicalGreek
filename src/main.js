@@ -11,7 +11,7 @@ const navigate = (page, data) => {
 	//reset page data
 	pageData = {};
 	
-	if (pages [currentPage].setup !== undefined) {
+	if (pages [currentPage].setup) {
 		pages [currentPage].setup (data);
 	}
 	

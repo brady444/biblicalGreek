@@ -1,3 +1,1 @@
-"use strict";
-
-import { render, html } from "https://unpkg.com/uhtml?module";
+import { html, render } from "https://unpkg.com/uhtml?module";
