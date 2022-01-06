@@ -11,11 +11,11 @@ const SectionGroup = (name, content) => html
 	`<div class = "sectionGroup flexColumnCenter largePadding">
 		<p class = "largeFont">${ name }</p>
 		
-		<div class = "flexRowCenterStart largeGap">${ content }</div>
+		<div class = "flexRowCenterStart extraLargeGap">${ content }</div>
 	</div>`;
 
 const Section = (name, content) => html
-	`<div class = "mediumGap flexColumnCenter">
+	`<div class = "flexColumnCenter smallGap">
 		<p class = "mediumFont">${ name }</p>
 		
 		${ content }
@@ -26,6 +26,11 @@ const SectionLink = (text, onclick, href) => html
 
 const ParadigmLabel = text => html
 	`<p class = "paradigmLabel flexRowCenter">${ text }</p>`;
+
+const ParadigmElementStatic = element => html
+	`<div class = "paradigmElement flexRowCenter">
+		<p class = ${ "flexRowCenter answered" + (element.underlined ? " underlined" : "") }>${ element.text }</p>
+	</div>`;
 
 const ParadigmElement = element => html
 	`<div class = "paradigmElement flexRowCenter">
@@ -135,8 +140,8 @@ const ParadigmRow = (labelText, elements) => html
 	</div>`;
 
 const Paradigm = elements => html
-	`<div class = "paradigm flexColumnCenter mediumPadding mediumGap">
-		<div class = "paradigmRow flexRowCenter mediumGap">
+	`<div class = "paradigm flexColumnCenter smallGap mediumPadding">
+		<div class = "paradigmRow flexRowCenter smallGap">
 			${ ParadigmLabel () }
 			${ ParadigmLabel ("Masculine (2nd)") }
 			${ ParadigmLabel ("Feminine (1st)") }

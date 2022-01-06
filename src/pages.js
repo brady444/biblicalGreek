@@ -28,7 +28,7 @@ const pages = {
 				Section ("Parsing", []),
 				
 				Section ("Paradigms", [
-					SectionLink ("Images", () => navigate ("resourcesParadigms"))
+					SectionLink ("Paradigms", () => navigate ("resourcesParadigms"))
 				]),
 				
 				Section ("Other", [
@@ -60,8 +60,8 @@ const pages = {
 	
 	resourcesParadigms: {
 		content: () => html
-			`<div class = "container flexColumnStartCenter largePadding mediumGap">
-				${ Object.values (constants.paradigms).map (paradigm => html`<img class = "paradigmImage" src = ${ paradigm.imageSrc } />`) }
+			`<div class = "container flexColumnStartCenter mediumGap smallPadding">
+				${ Object.values (constants.paradigms).map (paradigm => html`<p class = "largeFont">${ paradigm.name }</p> ${ Paradigm (paradigm.elements.map (element => ParadigmElementStatic (element))) }`) }
 			</div>`
 	},
 	

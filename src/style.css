@@ -54,11 +54,19 @@ a {
 	padding: 20px;
 }
 
-.mediumGap {
+.smallGap {
 	gap: 10px;
 }
 
+.mediumGap {
+	gap: 15px;
+}
+
 .largeGap {
+	gap: 20px;
+}
+
+.extraLargeGap {
 	gap: 50px;
 }
 

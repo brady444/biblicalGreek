@@ -9,30 +9,8 @@
 		"sourceType": "module"
 	},
 	
-	"globals": {
-		"constants": "readonly",
-		"currentPage": "readonly",
-		"html": "readonly",
-		"navigate": "readonly",
-		"pageData": "readonly",
-		"pages": "readonly",
-		"update": "readonly",
-		"render": "readonly",
-		"utilities": "readonly",
-		"Header": "readonly",
-		"Paradigm": "readonly",
-		"Question": "readonly",
-		"Section": "readonly",
-		"SectionGroup": "readonly",
-		"SectionLink": "readonly",
-		"ParadigmElement": "readonly",
-		"ParadigmForm": "readonly"
-	},
-	
 	"rules": {
-		"no-unused-vars": ["error", {
-			"varsIgnorePattern": "(constants|currentPage|html|navigate|pageData|pages|update|render|utilities|Header|Paradigm|Question|Section|SectionGroup|SectionLink|ParadigmElement|ParadigmForm)"
-		}],
+		"no-unused-vars": "off",
 		
 		"array-callback-return": ["error", {
 			"checkForEach": true
@@ -78,7 +56,7 @@
 		"no-sparse-arrays": "error",
 		"no-template-curly-in-string": "error",
 		"no-this-before-super": "error",
-		"no-undef": "error",
+		"no-undef": "off",
 		"no-unexpected-multiline": "error",
 		"no-unmodified-loop-condition": "error",
 		"no-unreachable": "error",

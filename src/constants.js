@@ -783,7 +783,6 @@ const constants = {
 	paradigms: {
 		"Case Endings": {
 			name: "Case Endings",
-			imageSrc: "/res/caseEndingsParadigm.png",
 
 			elements: [
 				{ text: "ς" },
@@ -815,7 +814,6 @@ const constants = {
 		
 		"The Article": {
 			name: "The Article",
-			imageSrc: "/res/theArticleParadigm.png",
 
 			elements: [
 				{ text: "ὁ" },
@@ -847,7 +845,6 @@ const constants = {
 		
 		"The 3rd Person Pronoun": {
 			name: "The 3rd Person Pronoun",
-			imageSrc: "/res/the3rdPersonPronounParadigm.png",
 
 			elements: [
 				{ text: "αὐτός" },
