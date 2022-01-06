@@ -3,38 +3,36 @@
 /* eslint-disable implicit-arrow-linebreak */
 
 const Header = () => html
-	`<div id = "header" class = "flexRowCenter mediumFont">
+	`<div id = "header" class = "flex mediumFont">
 		<a class = "smallPadding" onclick = ${ () => navigate ("main") }>Biblical Greek</a>
 	</div>`;
 
-const SectionGroup = (name, content) => html
-	`<div class = "sectionGroup flexColumnCenter largePadding">
-		<p class = "largeFont">${ name }</p>
-		
-		<div class = "flexRowCenterStart extraLargeGap">${ content }</div>
+const SectionGroup = content => html
+	`<div class = "sectionGroup flexColumn largePadding">
+		<div class = "flexTop extraLargeGap">${ content }</div>
 	</div>`;
 
 const Section = (name, content) => html
-	`<div class = "flexColumnCenter smallGap">
+	`<div class = "flexColumn smallGap">
 		<p class = "mediumFont">${ name }</p>
 		
 		${ content }
 	</div>`;
 
 const SectionLink = (text, onclick, href) => html
-	`<a class = "sectionLink smallFont" onclick = ${ onclick } href = ${ href }>${ text }</a>`;
+	`<a class = "sectionLink smallFont gray" onclick = ${ onclick } href = ${ href }>${ text }</a>`;
 
 const ParadigmLabel = text => html
-	`<p class = "paradigmLabel flexRowCenter">${ text }</p>`;
+	`<p class = "paradigmLabel flex">${ text }</p>`;
 
 const ParadigmElementStatic = element => html
-	`<div class = "paradigmElement flexRowCenter">
-		<p class = ${ "flexRowCenter answered" + (element.underlined ? " underlined" : "") }>${ element.text }</p>
+	`<div class = "paradigmElement flex">
+		<p class = ${ "flex answered" + (element.underlined ? " underlined" : "") }>${ element.text }</p>
 	</div>`;
 
 const ParadigmElement = element => html
-	`<div class = "paradigmElement flexRowCenter">
-		<p class = ${ "flexRowCenter" + (element.answered ?
+	`<div class = "paradigmElement flex">
+		<p class = ${ "flex" + (element.answered ?
 			element.underlined ?
 				" answered underlined" :
 				" answered" :
@@ -76,8 +74,8 @@ const ParadigmElement = element => html
 	</div>`;
 
 const ParadigmForm = square => html
-	`<div class = "paradigmElement flexRowCenter">
-		<p class = ${ "flexRowCenter" + (square.answered ?
+	`<div class = "paradigmElement flex">
+		<p class = ${ "flex" + (square.answered ?
 			" answered" :
 				square.incorrect ?
 					" incorrect" :
@@ -86,40 +84,40 @@ const ParadigmForm = square => html
 				return;
 			}
 			
-			const caseIndex = pageData.currentForm.cases.indexOf (square.form.case);
-			const numberIndex = pageData.currentForm.numbers.indexOf (square.form.number);
-			const genderIndex = pageData.currentForm.genders.indexOf (square.form.gender);
-			
 			//if the answer is correct
-			if (caseIndex > -1 && numberIndex > -1 && genderIndex > -1) {
-				pageData.currentForm.remainingMatches -= 1;
+			if (pageData.currentForm.text === square.text) {
+				pageData.remainingMatches -= 1;
 				
 				square.answered = true;
 				
 				//if we have answered all squares for this form
-				if (pageData.currentForm.remainingMatches < 1) {
-					//set incorrect and answered to false for all squares
-					for (let i = 0; i < pageData.squares.length; i++) {
-						pageData.squares [i].answered = false;
-						pageData.squares [i].incorrect = false;
+				if (pageData.remainingMatches < 1) {
+					//set incorrect to false for all squares
+					for (let i = 0; i < Object.values (pageData.squares).length; i++) {
+						Object.values (pageData.squares) [i].incorrect = false;
 					}
 					
 					pageData.currentWord.forms.splice (pageData.currentWord.forms.indexOf (pageData.currentForm), 1);
 					
 					if (pageData.currentWord.forms.length < 1) {
 						pageData.remainingWords.splice (pageData.remainingWords.indexOf (pageData.currentWord), 1);
-					}
-					
-					if (pageData.remainingWords.length < 1) {
-						pages [currentPage].setup ();
+						
+						if (pageData.remainingWords.length < 1) {
+							pages [currentPage].setup ();
+						}
+						
+						else {
+							//set answered to false for all squares
+							for (let i = 0; i < Object.values (pageData.squares).length; i++) {
+								Object.values (pageData.squares) [i].answered = false;
+							}
+							
+							pageData.getNewWord ();
+						}
 					}
 					
 					else {
-						pageData.currentWord = utilities.randomElement (pageData.remainingWords);
-						
-						pageData.currentForm = utilities.randomElement (pageData.currentWord.forms);
-						
-						pageData.currentForm.remainingMatches = pageData.currentForm.cases.length * pageData.currentForm.numbers.length * pageData.currentForm.genders.length;
+						pageData.getNewForm ();
 					}
 				}
 			}
@@ -129,19 +127,19 @@ const ParadigmForm = square => html
 			}
 			
 			update ();
-		} }>${ square.answered ? pageData.currentForm.text : null }</p>
+		} }>${ square.answered ? square.text : null }</p>
 	</div>`;
 
 const ParadigmRow = (labelText, elements) => html
-	`<div class = "paradigmRow flexRowCenter">
+	`<div class = "paradigmRow flex mediumGap">
 		${ ParadigmLabel (labelText) }
 		
 		${ elements }
 	</div>`;
 
 const Paradigm = elements => html
-	`<div class = "paradigm flexColumnCenter smallGap mediumPadding">
-		<div class = "paradigmRow flexRowCenter smallGap">
+	`<div class = "paradigm flexColumn smallGap mediumPadding">
+		<div class = "paradigmRow flex smallGap">
 			${ ParadigmLabel () }
 			${ ParadigmLabel ("Masculine (2nd)") }
 			${ ParadigmLabel ("Feminine (1st)") }
@@ -161,6 +159,6 @@ const Paradigm = elements => html
 	</div>`;
 
 const Question = (text, underlined) => html
-	`<div class = "flexRowCenter">
-		<p class = "mediumPadding extraLargeFont">Where does <span id = "questionElement" class = ${ underlined ? "underlined" : null }>${ text }</span> go?</p>
+	`<div class = "flex">
+		<p class = "extraLargeFont">Where does <span id = "questionElement" class = ${ underlined ? "underlined" : null }>${ text }</span> go?</p>
 	</div>`;

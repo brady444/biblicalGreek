@@ -115,7 +115,11 @@
 		"id-match": "off",
 		"init-declarations": "off",
 		"max-classes-per-file": "error",
-		"max-depth": "error",
+		
+		"max-depth": ["error", {
+			"max": 5
+		}],
+		
 		"max-lines": "off",
 		"max-lines-per-function": "off",
 		"max-nested-callbacks": "error",
@@ -278,7 +282,7 @@
 		"lines-between-class-members": "error",
 		"max-len": "off",
 		"max-statements-per-line": "error",
-		"multiline-ternary": ["error", "always-multiline"],
+		"multiline-ternary": "off",
 		"new-parens": "error",
 		"newline-per-chained-call": "error",
 		

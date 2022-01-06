@@ -42,16 +42,64 @@ a {
 	}
 }
 
-.smallPadding {
-	padding: 10px;
+.container {
+	width: 100%;
+	height: 100%;
+	overflow-y: scroll;
+	box-sizing: border-box;
 }
 
-.mediumPadding {
-	padding: 15px;
+.flex {
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
 }
 
-.largePadding {
-	padding: 20px;
+.flexTop {
+	align-items: flex-start;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.flexColumn {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.flexColumnTop {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.flexColumnLeft {
+	align-items: flex-start;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.flexColumnRight {
+	align-items: flex-end;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.flexColumnTopLeft {
+	align-items: flex-start;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.extraSmallGap {
+	gap: 5px;
 }
 
 .smallGap {
@@ -64,6 +112,18 @@ a {
 
 .largeGap {
 	gap: 20px;
+}
+
+.smallPadding {
+	padding: 10px;
+}
+
+.mediumPadding {
+	padding: 15px;
+}
+
+.largePadding {
+	padding: 20px;
 }
 
 .extraLargeGap {
@@ -86,43 +146,12 @@ a {
 	font-size: 40px;
 }
 
-.flexRowCenter {
-	align-items: center;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-}
-
-.flexRowCenterStart {
-	align-items: flex-start;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-}
-
-.flexColumnCenter {
-	align-items: center;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
-
-.flexColumnStartCenter {
-	align-items: center;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-}
-
 .underlined {
 	text-decoration: underline;
 }
 
-.container {
-	box-sizing: border-box;
-	flex-grow: 1;
-	overflow-y: scroll;
-	width: 100%;
+.gray {
+	color: #AAA;
 }
 
 .sectionGroup {
@@ -132,7 +161,6 @@ a {
 
 .sectionGroup > div {
 	flex-wrap: wrap;
-	margin-top: 10px;
 }
 
 .sectionGroup:nth-child(even) {
@@ -140,7 +168,6 @@ a {
 }
 
 .sectionLink {
-	color: #AAA;
 	transition: color .25s;
 }
 
@@ -153,8 +180,13 @@ a {
 	width: 100%;
 }
 
-.paradigmImage {
-	width: 50%;
+.vocabularyWord {
+	width: 40vmin;
+	background-color: #2A2A2A;
+}
+
+.vocabularyForm {
+	width: 100%;
 }
 
 .paradigm {
@@ -165,7 +197,6 @@ a {
 
 .paradigmRow {
 	width: 100%;
-	cpo: blue;
 }
 
 .paradigmRow > p, .paradigmRow > div {
