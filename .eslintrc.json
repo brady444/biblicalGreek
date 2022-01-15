@@ -1,4 +1,8 @@
 {
+	"plugins": [
+		"indent-empty-lines"
+	],
+	
 	"env": {
 		"browser": true,
 		"node": true,
@@ -10,6 +14,8 @@
 	},
 	
 	"rules": {
+		"indent-empty-lines/indent-empty-lines": "error",
+		
 		"no-unused-vars": "off",
 		
 		"array-callback-return": ["error", {
@@ -247,17 +253,16 @@
 		"symbol-description": "off",
 		"vars-on-top": "error",
 		"yoda": "error",
+		
 		"array-bracket-newline": ["error", "consistent"],
 		
 		"array-bracket-spacing": ["error", "never", {
-			"objectsInArrays": true,
+			"objectsInArrays": false,
 			"arraysInArrays": true
 		}],
 		
-		"array-element-newline": ["error", "consistent"],
-		
+		"array-element-newline": "error",
 		"arrow-parens": ["error", "as-needed"],
-		
 		"arrow-spacing": "error",
 		"block-spacing": "error",
 		"brace-style": ["error", "stroustrup"],
@@ -305,7 +310,9 @@
 		
 		"no-whitespace-before-property": "off",
 		"nonblock-statement-body-position": ["error", "below"],
+		
 		"object-curly-newline": "error",
+		
 		"object-curly-spacing": ["error", "always"],
 		
 		"object-property-newline": ["error", {

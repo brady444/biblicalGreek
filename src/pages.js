@@ -5,7 +5,7 @@
 const pages = {
 	main: {
 		content: () => html
-		`<div id = "sections" class = "container flexColumnTop">
+		`<div id = "sections" class = "pageContainer flexColumnTop">
 			${ SectionGroup ([
 				Section ("Bill Mounce", [
 					SectionLink ("BillMounce.com", null, "https://billmounce.com"),
@@ -19,24 +19,18 @@ const pages = {
 					SectionLink ("Reader", null, "https://www.gntreader.com"),
 					
 					SectionLink ("Interlinear", null, "https://www.abarim-publications.com/Interlinear-New-Testament")
-				]),
-				
-				Section ("Other", [
-					SectionLink ("Windows Typing Guide", null, "https://www.ctsfw.edu/wp-content/uploads/2016/02/Greek-Unicode-Keyboard-Input-Windows-10.pdf")
 				])
 			]) }
 			
 			${ SectionGroup ([
 				Section ("Vocabulary", [
-					SectionLink ("Dictionary", () => navigate ("resourcesVocabulary")),
-					
-					SectionLink ("Spreadsheet", null, "https://docs.google.com/spreadsheets/d/1phUbF1zjwF5YpiVExSZ7FZeG_XsgfkLgpF7ROgaLPCo"),
+					SectionLink ("Dictionary", () => navigate ("dictionary")),
 					
 					SectionLink ("Practice", null, "https://quizlet.com/brady2384765/folders/biblical-greek-vocabulary")
 				]),
 				
 				Section ("Paradigms", [
-					SectionLink ("View", () => navigate ("resourcesParadigms")),
+					SectionLink ("View", () => navigate ("viewParadigms")),
 					
 					...Object.values (constants.paradigms).map (paradigm => SectionLink (paradigm.name, () => {
 						navigate ("practiceParadigms", {
@@ -46,26 +40,37 @@ const pages = {
 				]),
 				
 				Section ("Parsing", [
-					SectionLink ("Parser"),
+					SectionLink ("Parser", () => navigate ("parser")),
 					
-					SectionLink ("Practice", () => {
-						navigate ("practiceParsing", {
-							forms: constants.parsingForms
-						});
-					})
+					SectionLink ("Practice", () => navigate ("practiceParsing", { forms: constants.parsingForms }))
+				])
+			]) }
+			
+			${ SectionGroup ([
+				Section ("Other", [
+					SectionLink ("Windows Typing Guide", null, "https://www.ctsfw.edu/wp-content/uploads/2016/02/Greek-Unicode-Keyboard-Input-Windows-10.pdf"),
+					
+					SectionLink ("About", () => navigate ("about"))
 				])
 			]) }
 		</div>`
 	},
 	
-	resourcesVocabulary: {
+	dictionary: {
 		content: () => html
-			`<div class = "container flexColumnTop largeGap largePadding">
+			`<div class = "pageContainer flexColumnTop largeGap largePadding">
 				${ constants.vocabulary.map (word => html
 					`<div class = "vocabularyWord flexColumn mediumGap mediumPadding">
 						<p class = "largeFont">${ word.lexicalForm }</p>
 						
-						<p class = "mediumFont">Frequency: ${ word.frequency.toLocaleString () }</p>
+						${ word.vocabularyForm ? html
+							`<p class = "smallFont">${ word.vocabularyForm }</p>` :
+							null
+						}
+						
+						<p class = "smallFont">${ word.definition }</p>
+						
+						<p class = "smallFont">Frequency: ${ word.frequency.toLocaleString () }</p>
 						
 						${ word.forms.length > 0 ? html
 							`${ word.forms.map (form => html
@@ -79,15 +84,14 @@ const pages = {
 							) }` :
 							null
 						}
-						
 					</div>`
 				) }
 			</div>`
 	},
 	
-	resourcesParadigms: {
+	viewParadigms: {
 		content: () => html
-			`<div class = "container flexColumnTop mediumGap largePadding">
+			`<div class = "pageContainer flexColumnTop mediumGap largePadding">
 				${ Object.values (constants.paradigms).map (paradigm => html
 					`<p class = "largeFont">${ paradigm.name }</p> ${ Paradigm (paradigm.elements.map (element => ParadigmElementStatic (element))) }`
 				) }
@@ -106,12 +110,19 @@ const pages = {
 		},
 		
 		content: () => html
-			`<div class = "container flexColumn mediumGap largePadding">
+			`<div class = "pageContainer flexColumn mediumGap largePadding">
 				<p class = "largeFont">${ pageData.paradigmName }</p>
-			
+				
 				${ Paradigm (pageData.currentElements.map (element => ParadigmElement (element))) }
 				
 				${ Question (pageData.currentElement.text, pageData.currentElement.underlined) }
+			</div>`
+	},
+	
+	parser: {
+		content: () => html
+			`<div class = "pageContainer flexColumn mediumGap largePadding">
+			
 			</div>`
 	},
 	
@@ -177,12 +188,19 @@ const pages = {
 		},
 		
 		content: () => html
-			`<div class = "container flexColumn mediumGap largePadding">
+			`<div class = "pageContainer flexColumn mediumGap largePadding">
 				<p class = "largeFont">${ pageData.currentWord.lexicalForm }</p>
 				
 				${ Paradigm (Object.values (pageData.squares).map (square => ParadigmForm (square))) }
 				
 				${ Question (pageData.currentForm.text) }
+			</div>`
+	},
+	
+	about: {
+		content: () => html
+			`<div class = "pageContainer flexColumn mediumGap largePadding">
+				<p class = "smallFont">Some data is taken from BillMounce.com, Basics of Biblical Greek, and GNTReader.com. Some data is modified. Data may not be accurate.</p>
 			</div>`
 	}
 };

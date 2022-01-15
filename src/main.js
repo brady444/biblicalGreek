@@ -3,12 +3,7 @@ let currentPage = "main";
 let pageData = {};
 
 const update = () =>
-	render (document.body, html`
-		<div class = "container flexColumn">
-			${ Header () }
-			${ pages [currentPage].content () }
-		</div>`
-	);
+	render (document.body, html`${ Header () } ${ pages [currentPage].content () }`);
 
 const navigate = (page, data) => {
 	currentPage = page;

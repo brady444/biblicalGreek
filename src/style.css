@@ -2,7 +2,7 @@
 	display: none;
 }
 
-html, body {
+body {
 	height: 100%;
 	width: 100%;
 }
@@ -18,6 +18,7 @@ p, a {
 	font-weight: normal;
 	margin: 0;
 	text-decoration: none;
+	overflow-wrap: anywhere;
 }
 
 a {
@@ -42,9 +43,9 @@ a {
 	}
 }
 
-.container {
+.pageContainer {
 	width: 100%;
-	height: 100%;
+	height: calc(100vh - 46px);
 	overflow-y: scroll;
 	box-sizing: border-box;
 }
@@ -181,8 +182,14 @@ a {
 }
 
 .vocabularyWord {
-	width: 40vmin;
+	width: 450px;
+	max-width: 100%;
 	background-color: #2A2A2A;
+	box-sizing: border-box;
+}
+
+.vocabularyWord > p {
+	text-align: center;
 }
 
 .vocabularyForm {
@@ -222,13 +229,17 @@ a {
 	text-align: center;
 	transition: .25s background-color;
 	width: 8vmin;
+	overflow-wrap: unset;
+	user-select: none;
 }
 
 .answered {
 	background-color: unset !important;
 	cursor: unset !important;
+	user-select: unset !important;
 }
 
 .incorrect {
 	background-color: #d41c1c !important;
+	cursor: unset !important;
 }
