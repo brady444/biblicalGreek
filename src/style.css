@@ -187,8 +187,8 @@ input {
 }
 
 .vocabularyWord {
-	width: 100%;
-	max-width: 450px;
+	width: 450px;
+	max-width: 100%;
 	background-color: #2A2A2A;
 	box-sizing: border-box;
 }
@@ -255,6 +255,7 @@ input {
 }
 
 #parserWords {
+	width: 100%;
 	flex-wrap: wrap;
 }
 
