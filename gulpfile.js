@@ -80,7 +80,8 @@ const watch = callback => {
 		port: 81,
 		ui: false,
 		open: false,
-		notify: false
+		notify: false,
+		ghostMode: false
 	});
 	
 	gulp.watch ("src", callback => {

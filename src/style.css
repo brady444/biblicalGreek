@@ -3,26 +3,31 @@
 }
 
 body {
-	height: 100%;
 	width: 100%;
-}
-
-body {
-	background-color: #222;
+	height: 100%;
 	margin: 0;
+	background-color: #222;
 }
 
 p, a {
-	color: white;
-	font-family: Times New Roman;
-	font-weight: normal;
 	margin: 0;
+	font-family: Times New Roman;
+	color: white;
 	text-decoration: none;
 	overflow-wrap: anywhere;
 }
 
 a {
 	cursor: pointer;
+}
+
+input {
+	outline: none;
+	border: none;
+	padding: 10px;
+	background: #2A2A2A;
+	color: white;
+	box-sizing: border-box;
 }
 
 @media (hover: hover) {
@@ -182,8 +187,8 @@ a {
 }
 
 .vocabularyWord {
-	width: 450px;
-	max-width: 100%;
+	width: 100%;
+	max-width: 450px;
 	background-color: #2A2A2A;
 	box-sizing: border-box;
 }
@@ -242,4 +247,17 @@ a {
 .incorrect {
 	background-color: #d41c1c !important;
 	cursor: unset !important;
+}
+
+#parserInput {
+	width: 600px;
+	max-width: 100%;
+}
+
+#parserWords {
+	flex-wrap: wrap;
+}
+
+#parserWords > .vocabularyWord {
+	height: 300px;
 }

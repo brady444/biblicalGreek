@@ -201,3 +201,30 @@ const Question = (text, underlined) => html
 	`<div class = "flex">
 		<p class = "extraLargeFont">Where does <span id = "questionElement" class = ${ underlined ? "underlined" : null }>${ text }</span> go?</p>
 	</div>`;
+
+const Word = (word, forms) => html
+	`<div class = "vocabularyWord flexColumn mediumGap mediumPadding">
+		<p class = "largeFont">${ word.lexicalForm }</p>
+		
+		${ word.vocabularyForm ? html
+			`<p class = "smallFont">${ word.vocabularyForm }</p>` :
+			null
+		}
+		
+		<p class = "smallFont">${ word.definition }</p>
+		
+		<p class = "smallFont">Frequency: ${ word.frequency.toLocaleString () }</p>
+		
+		${ (forms || word.forms).length > 0 ? html
+			`${ (forms || word.forms).map (form => html
+				`<div class = "vocabularyForm flexColumnLeft extraSmallGap">
+					<p class = "smallFont">${ form.text }</p>
+					
+					${ form.forms.map (_form => html
+						`<p class = "smallFont gray">${ _form.case } ${ _form.number } ${ _form.gender }</p>`
+					) }
+				</div>`
+			) }` :
+			null
+		}
+	</div>`;

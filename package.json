@@ -3,7 +3,8 @@
 	"version": "1.0.0",
 	"description": "Biblical Greek",
 	"scripts": {
-		"prepare": "husky install"
+		"prepare": "husky install",
+		"start": "gulp watch"
 	},
 	"repository": {
 		"type": "git",
