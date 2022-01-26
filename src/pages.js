@@ -64,30 +64,78 @@ const pages = {
 	},
 	
 	viewParadigms: {
+		setup: () => {
+			pageData.paradigms = JSON.parse (JSON.stringify (constants.paradigms));
+			
+			for (let i = 0; i < Object.keys (pageData.paradigms).length; i++) {
+				for (let j = 0; j < Object.values (pageData.paradigms) [i].rows.length; j++) {
+					for (let k = 0; k < Object.values (pageData.paradigms) [i].rows [j].elements.length; k++) {
+						Object.values (pageData.paradigms) [i].rows [j].elements [k].answered = true;
+					}
+				}
+			}
+		},
+		
 		content: () => html
 			`<div class = "pageContainer flexColumnTop mediumGap mediumPadding">
-				${ Object.values (constants.paradigms).map (paradigm => html
-					`<p class = "largeFont">${ paradigm.name }</p> ${ Paradigm (paradigm.elements.map (element => ParadigmElementStatic (element))) }`
+				${ Object.values (pageData.paradigms).map (paradigm => html
+					`<p class = "largeFont">${ paradigm.name }</p>
+					
+					${ Paradigm (paradigm.columnLabels, paradigm.rows) }`
 				) }
 			</div>`
 	},
 	
 	practiceParadigms: {
 		setup: data => {
-			pageData.paradigmName = data.paradigmName;
+			pageData.paradigm = JSON.parse (JSON.stringify (constants.paradigms [data.paradigmName]));
 			
-			pageData.currentElements = JSON.parse (JSON.stringify (constants.paradigms [data.paradigmName].elements));
+			pageData.remainingElements = [];
 			
-			pageData.remainingElements = [...pageData.currentElements];
+			for (let i = 0; i < pageData.paradigm.rows.length; i++) {
+				pageData.remainingElements = pageData.remainingElements.concat (pageData.paradigm.rows [i].elements);
+			}
 			
 			pageData.currentElement = utilities.randomElement (pageData.remainingElements);
 		},
 		
 		content: () => html
 			`<div class = "pageContainer flexColumn mediumGap mediumPadding">
-				<p class = "largeFont">${ pageData.paradigmName }</p>
+				<p class = "largeFont">${ pageData.paradigm.name }</p>
 				
-				${ Paradigm (pageData.currentElements.map (element => ParadigmElement (element))) }
+				${ Paradigm (pageData.paradigm.columnLabels, pageData.paradigm.rows, element => {
+					if (element.answered) {
+						return;
+					}
+					
+					//if answer is correct
+					if (pageData.currentElement.text === element.text) {
+						element.answered = true;
+						
+						//set incorrect to false for all elements
+						for (let i = 0; i < pageData.remainingElements.length; i++) {
+							pageData.remainingElements [i].incorrect = false;
+						}
+						
+						pageData.remainingElements.splice (pageData.remainingElements.indexOf (element), 1);
+						
+						if (pageData.remainingElements.length < 1) {
+							pages [currentPage].setup ({
+								paradigmName: pageData.paradigm.name
+							});
+						}
+						
+						else {
+							pageData.currentElement = utilities.randomElement (pageData.remainingElements);
+						}
+					}
+					
+					else {
+						element.incorrect = true;
+					}
+					
+					update ();
+				}) }
 				
 				${ Question (pageData.currentElement.text, pageData.currentElement.underlined) }
 			</div>`
@@ -148,7 +196,7 @@ const pages = {
 				}
 			}
 			
-			pageData.squares = {
+			pageData.currentElements = {
 				nominativesingularmasculine: {},
 				nominativesingularfeminine: {},
 				nominativesingularneuter: {},
@@ -175,12 +223,94 @@ const pages = {
 				accusativepluralneuter: {}
 			};
 			
+			pageData.rows = [
+				{
+					label: "Nominative Singular",
+					
+					elements: [
+						pageData.currentElements.nominativesingularmasculine,
+						pageData.currentElements.nominativesingularfeminine,
+						pageData.currentElements.nominativesingularneuter
+					]
+				},
+				
+				{
+					label: "Genitive Singular",
+					
+					elements: [
+						pageData.currentElements.genitivesingularmasculine,
+						pageData.currentElements.genitivesingularfeminine,
+						pageData.currentElements.genitivesingularneuter
+					]
+				},
+				
+				{
+					label: "Dative Singular",
+					
+					elements: [
+						pageData.currentElements.dativesingularmasculine,
+						pageData.currentElements.dativesingularfeminine,
+						pageData.currentElements.dativesingularneuter
+					]
+				},
+				
+				{
+					label: "Accusative Singular",
+					
+					elements: [
+						pageData.currentElements.accusativesingularmasculine,
+						pageData.currentElements.accusativesingularfeminine,
+						pageData.currentElements.accusativesingularneuter
+					]
+				},
+				
+				{
+					label: "Nominative Plural",
+					
+					elements: [
+						pageData.currentElements.nominativepluralmasculine,
+						pageData.currentElements.nominativepluralfeminine,
+						pageData.currentElements.nominativepluralneuter
+					]
+				},
+				
+				{
+					label: "Genitive Plural",
+					
+					elements: [
+						pageData.currentElements.genitivepluralmasculine,
+						pageData.currentElements.genitivepluralfeminine,
+						pageData.currentElements.genitivepluralneuter
+					]
+				},
+				
+				{
+					label: "Dative Plural",
+					
+					elements: [
+						pageData.currentElements.dativepluralmasculine,
+						pageData.currentElements.dativepluralfeminine,
+						pageData.currentElements.dativepluralneuter
+					]
+				},
+				
+				{
+					label: "Accusative Plural",
+					
+					elements: [
+						pageData.currentElements.accusativepluralmasculine,
+						pageData.currentElements.accusativepluralfeminine,
+						pageData.currentElements.accusativepluralneuter
+					]
+				}
+			];
+			
 			pageData.getNewWord = () => {
 				pageData.currentWord = utilities.randomElement (pageData.remainingWords);
 				
 				for (let j = 0; j < pageData.currentWord.forms.length; j++) {
 					for (let k = 0; k < pageData.currentWord.forms [j].forms.length; k++) {
-						pageData.squares [pageData.currentWord.forms [j].forms [k].case + pageData.currentWord.forms [j].forms [k].number + pageData.currentWord.forms [j].forms [k].gender].text = pageData.currentWord.forms [j].text;
+						pageData.currentElements [pageData.currentWord.forms [j].forms [k].case + pageData.currentWord.forms [j].forms [k].number + pageData.currentWord.forms [j].forms [k].gender].text = pageData.currentWord.forms [j].text;
 					}
 				}
 				
@@ -200,7 +330,59 @@ const pages = {
 			`<div class = "pageContainer flexColumn mediumGap mediumPadding">
 				<p class = "largeFont">${ pageData.currentWord.lexicalForm }</p>
 				
-				${ Paradigm (Object.values (pageData.squares).map (square => ParadigmForm (square))) }
+				${ Paradigm ([
+					"Masculine (2nd)",
+					"Feminine (1st)",
+					"Neuter (2nd)"
+				], pageData.rows, element => {
+					if (element.answered) {
+						return;
+					}
+					
+					//if the answer is correct
+					if (pageData.currentForm.text === element.text) {
+						pageData.remainingMatches -= 1;
+						
+						element.answered = true;
+						
+						//if we have answered all elements for this form
+						if (pageData.remainingMatches < 1) {
+							//set incorrect to false for all elements
+							for (let i = 0; i < Object.values (pageData.currentElements).length; i++) {
+								Object.values (pageData.currentElements) [i].incorrect = false;
+							}
+							
+							pageData.currentWord.forms.splice (pageData.currentWord.forms.indexOf (pageData.currentForm), 1);
+							
+							if (pageData.currentWord.forms.length < 1) {
+								pageData.remainingWords.splice (pageData.remainingWords.indexOf (pageData.currentWord), 1);
+								
+								if (pageData.remainingWords.length < 1) {
+									pages [currentPage].setup ();
+								}
+								
+								else {
+									//set answered to false for all elements
+									for (let i = 0; i < Object.values (pageData.currentElements).length; i++) {
+										Object.values (pageData.currentElements) [i].answered = false;
+									}
+									
+									pageData.getNewWord ();
+								}
+							}
+							
+							else {
+								pageData.getNewForm ();
+							}
+						}
+					}
+					
+					else {
+						element.incorrect = true;
+					}
+					
+					update ();
+				}) }
 				
 				${ Question (pageData.currentForm.text) }
 			</div>`
