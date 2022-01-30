@@ -30,12 +30,12 @@ const pages = {
 					]),
 					
 					Section ("Paradigms", [
-						SectionLink ("View", () => navigate ("viewParadigms")),
+						SectionLink ("View", () => navigate ("viewParadigms", {
+							paradigmName: Object.keys (constants.paradigms) [0]
+						})),
 						
-						...Object.values (constants.paradigms).map (paradigm => SectionLink (paradigm.name, () => {
-							navigate ("practiceParadigms", {
-								paradigmName: paradigm.name
-							});
+						SectionLink ("Practice", () => navigate ("practiceParadigms", {
+							paradigmName: Object.keys (constants.paradigms) [0]
 						}))
 					]),
 					
@@ -64,25 +64,29 @@ const pages = {
 	},
 	
 	viewParadigms: {
-		setup: () => {
-			pageData.paradigms = JSON.parse (JSON.stringify (constants.paradigms));
+		setup: data => {
+			pageData.paradigm = JSON.parse (JSON.stringify (constants.paradigms [data.paradigmName]));
 			
-			for (let i = 0; i < Object.keys (pageData.paradigms).length; i++) {
-				for (let j = 0; j < Object.values (pageData.paradigms) [i].rows.length; j++) {
-					for (let k = 0; k < Object.values (pageData.paradigms) [i].rows [j].elements.length; k++) {
-						Object.values (pageData.paradigms) [i].rows [j].elements [k].answered = true;
-					}
+			for (let i = 0; i < pageData.paradigm.rows.length; i++) {
+				for (let j = 0; j < pageData.paradigm.rows [i].elements.length; j++) {
+					pageData.paradigm.rows [i].elements [j].answered = true;
 				}
 			}
 		},
 		
 		content: () => html
 			`<div class = "pageContainer flexColumnTop mediumGap mediumPadding">
-				${ Object.values (pageData.paradigms).map (paradigm => html
-					`<p class = "largeFont">${ paradigm.name }</p>
+				<select class = "mediumFont" onchange = ${ event => {
+					pages [currentPage].setup ({
+						paradigmName: event.target.value
+					});
 					
-					${ Paradigm (paradigm.columnLabels, paradigm.rows) }`
-				) }
+					update ();
+				} }>
+					${ Object.keys (constants.paradigms).map (paradigm => html`<option class = "smallFont">${ paradigm }</option>`) }
+				</select>
+				
+				${ Paradigm (pageData.paradigm.columnLabels, pageData.paradigm.rows) }
 			</div>`
 	},
 	
@@ -100,8 +104,16 @@ const pages = {
 		},
 		
 		content: () => html
-			`<div class = "pageContainer flexColumn mediumGap mediumPadding">
-				<p class = "largeFont">${ pageData.paradigm.name }</p>
+			`<div class = "pageContainer flexColumnTop mediumGap mediumPadding">
+				<select class = "mediumFont" onchange = ${ event => {
+					pages [currentPage].setup ({
+						paradigmName: event.target.value
+					});
+					
+					update ();
+				} }>
+					${ Object.keys (constants.paradigms).map (paradigm => html`<option class = "smallFont">${ paradigm }</option>`) }
+				</select>
 				
 				${ Paradigm (pageData.paradigm.columnLabels, pageData.paradigm.rows, element => {
 					if (element.answered) {
@@ -391,7 +403,13 @@ const pages = {
 	about: {
 		content: () => html
 			`<div class = "pageContainer flexColumn mediumGap mediumPadding">
-				<p class = "smallFont">Some data is taken from BillMounce.com, Basics of Biblical Greek, and GNTReader.com. Some data is modified. Data may not be accurate.</p>
+				<p class = "smallFont">Some data is taken from BillMounce.com, Basics of Biblical Greek, and GNTReader.com.</p>
+				
+				<p class = "smallFont">Some data is modified.</p>
+				
+				<p class = "smallFont">Data may not be accurate.</p>
+				
+				<p class = "smallFont">Word and form frequencies may not be accurate.</p>
 			</div>`
 	}
 };
