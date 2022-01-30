@@ -56,52 +56,64 @@ input, select {
 }
 
 .flex {
-	align-items: center;
 	display: flex;
-	flex-direction: row;
 	justify-content: center;
+	align-items: center;
 }
 
 .flexTop {
-	align-items: flex-start;
 	display: flex;
-	flex-direction: row;
 	justify-content: center;
+	align-items: flex-start;
+}
+
+.flexLeft {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
 }
 
 .flexColumn {
-	align-items: center;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-items: center;
 }
 
 .flexColumnTop {
-	align-items: center;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
+	align-items: center;
 }
 
 .flexColumnLeft {
-	align-items: flex-start;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-items: flex-start;
 }
 
 .flexColumnRight {
-	align-items: flex-end;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-items: flex-end;
 }
 
 .flexColumnTopLeft {
-	align-items: flex-start;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
+	align-items: flex-start;
+}
+
+.fullWidth {
+	width: 100%;
+}
+
+.fullHeight {
+	height: 100%;
 }
 
 .extraSmallGap {
@@ -203,7 +215,6 @@ input, select {
 
 .paradigm {
 	background-color: #2A2A2A;
-	max-height: 90vmin;
 	width: 90vmin;
 }
 

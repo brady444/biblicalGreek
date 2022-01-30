@@ -5,7 +5,7 @@
 const pages = {
 	main: {
 		content: () => html
-			`<div id = "sections" class = "pageContainer flexColumnTop">
+			`<div id = "sections" class = "pageContainer flexColumnTop fullWidth">
 				${ SectionGroup ([
 					Section ("Bill Mounce", [
 						SectionLink ("BillMounce.com", null, "https://billmounce.com"),
@@ -58,7 +58,7 @@ const pages = {
 	
 	dictionary: {
 		content: () => html
-			`<div class = "pageContainer flexColumnTop largeGap mediumPadding">
+			`<div class = "pageContainer flexColumnTop fullWidth largeGap mediumPadding">
 				${ constants.vocabulary.map (word => Word (word)) }
 			</div>`
 	},
@@ -75,7 +75,7 @@ const pages = {
 		},
 		
 		content: () => html
-			`<div class = "pageContainer flexColumnTop mediumGap mediumPadding">
+			`<div class = "pageContainer flexColumnTop fullWidth mediumGap mediumPadding">
 				<select class = "mediumFont" onchange = ${ event => {
 					pages [currentPage].setup ({
 						paradigmName: event.target.value
@@ -104,7 +104,7 @@ const pages = {
 		},
 		
 		content: () => html
-			`<div class = "pageContainer flexColumnTop mediumGap mediumPadding">
+			`<div class = "pageContainer flexColumnTop fullWidth mediumGap mediumPadding">
 				<select class = "mediumFont" onchange = ${ event => {
 					pages [currentPage].setup ({
 						paradigmName: event.target.value
@@ -159,7 +159,7 @@ const pages = {
 		},
 		
 		content: () => html
-			`<div class = "pageContainer flexColumnTop mediumGap mediumPadding">
+			`<div class = "pageContainer flexColumnTop fullWidth mediumGap mediumPadding">
 				<input id = "parserInput" class = "mediumFont" placeholder = "Enter Greek..." oninput = ${ event => {
 					pageData.words = [];
 					
@@ -189,7 +189,7 @@ const pages = {
 					update ();
 				} } />
 				
-				<div id = "parserWords" class = "flex mediumGap">
+				<div id = "parserWords" class = "flex fullWidth mediumGap">
 					${ pageData.words.map (word => Word (word.word, word.form === undefined ? undefined : [word.form])) }
 				</div>
 			</div>`
@@ -339,7 +339,7 @@ const pages = {
 		},
 		
 		content: () => html
-			`<div class = "pageContainer flexColumn mediumGap mediumPadding">
+			`<div class = "pageContainer flexColumn fullWidth mediumGap mediumPadding">
 				<p class = "largeFont">${ pageData.currentWord.lexicalForm }</p>
 				
 				${ Paradigm ([
@@ -402,7 +402,7 @@ const pages = {
 	
 	about: {
 		content: () => html
-			`<div class = "pageContainer flexColumn mediumGap mediumPadding">
+			`<div class = "pageContainer flexColumn fullWidth mediumGap mediumPadding">
 				<p class = "smallFont">Some data is taken from BillMounce.com, Basics of Biblical Greek, and GNTReader.com.</p>
 				
 				<p class = "smallFont">Some data is modified.</p>
