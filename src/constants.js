@@ -290,7 +290,11 @@ const constants = {
 					label: "1st Person Singular",
 					
 					elements: [
-						{ text: "εἰμί" }
+						{ text: "εἰμί" },
+						
+						{ answered: true },
+						
+						{ answered: true }
 					]
 				},
 				
@@ -298,7 +302,11 @@ const constants = {
 					label: "2nd Person Singular",
 					
 					elements: [
-						{ text: "εἶ" }
+						{ text: "εἶ" },
+						
+						{ answered: true },
+						
+						{ answered: true }
 					]
 				},
 				
@@ -306,7 +314,11 @@ const constants = {
 					label: "3rd Person Singular",
 					
 					elements: [
-						{ text: "ἐστίν" }
+						{ text: "ἐστίν" },
+						
+						{ answered: true },
+						
+						{ answered: true }
 					]
 				},
 				
@@ -314,7 +326,11 @@ const constants = {
 					label: "1st Person Plural",
 					
 					elements: [
-						{ text: "ἐσμέν" }
+						{ text: "ἐσμέν" },
+						
+						{ answered: true },
+						
+						{ answered: true }
 					]
 				},
 				
@@ -322,7 +338,11 @@ const constants = {
 					label: "2nd Person Plural",
 					
 					elements: [
-						{ text: "ἐστέ" }
+						{ text: "ἐστέ" },
+						
+						{ answered: true },
+						
+						{ answered: true }
 					]
 				},
 				
@@ -330,7 +350,11 @@ const constants = {
 					label: "3rd Person Plural",
 					
 					elements: [
-						{ text: "εἰσίν" }
+						{ text: "εἰσίν" },
+						
+						{ answered: true },
+						
+						{ answered: true }
 					]
 				}
 			]

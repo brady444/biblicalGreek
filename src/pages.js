@@ -97,7 +97,13 @@ const pages = {
 			pageData.remainingElements = [];
 			
 			for (let i = 0; i < pageData.paradigm.rows.length; i++) {
-				pageData.remainingElements = pageData.remainingElements.concat (pageData.paradigm.rows [i].elements);
+				//todo remove, don't use empty elements in paradigms, replace loop with below concat
+				// pageData.remainingElements = pageData.remainingElements.concat (pageData.paradigm.rows [i].elements);
+				for (let j = 0; j < pageData.paradigm.rows [i].elements.length; j++) {
+					if (pageData.paradigm.rows [i].elements [j].text !== undefined) {
+						pageData.remainingElements.push (pageData.paradigm.rows [i].elements [j]);
+					}
+				}
 			}
 			
 			pageData.currentElement = utilities.randomElement (pageData.remainingElements);
