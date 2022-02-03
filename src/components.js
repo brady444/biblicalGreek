@@ -79,7 +79,7 @@ const Word = (word, forms) => html
 		${ (forms || word.forms).length > 0 ? html
 			`${ (forms || word.forms).map (form => html
 				`<div class = "fullWidth flexColumnLeft extraSmallGap">
-					<p class = "smallFont">${ form.text } (${ form.frequency?.toLocaleString () })</p>
+					<p class = "smallFont">${ form.text } (${ form.frequency.toLocaleString () })</p>
 					
 					${ form.forms.map (_form => html
 						`<p class = "smallFont gray">${ _form.case } ${ _form.number } ${ _form.gender }</p>`
