@@ -199,8 +199,6 @@ input, select {
 }
 
 .vocabularyWord {
-	width: 450px;
-	max-width: 100%;
 	background-color: #2A2A2A;
 	box-sizing: border-box;
 }
@@ -260,6 +258,11 @@ input, select {
 	cursor: unset !important;
 }
 
+#dictionary > input, #dictionary > div {
+	width: 450px;
+	max-width: 100%;
+}
+
 #parserInput {
 	width: 600px;
 	max-width: 100%;
@@ -271,5 +274,6 @@ input, select {
 }
 
 #parserWords > .vocabularyWord {
+	width: 450px;
 	height: 300px;
 }

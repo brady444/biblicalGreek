@@ -57,9 +57,19 @@ const pages = {
 	},
 	
 	dictionary: {
+		setup: () => {
+			pageData.words = constants.vocabulary;
+		},
+		
 		content: () => html
-			`<div class = "pageContainer flexColumnTop fullWidth largeGap mediumPadding">
-				${ constants.vocabulary.map (word => Word (word)) }
+			`<div id = "dictionary" class = "pageContainer flexColumnTop fullWidth mediumGap mediumPadding">
+				<input class = "mediumFont" placeholder = "Search..." oninput = ${ event => {
+					pageData.words = constants.vocabulary.filter (word => utilities.simplifyGreek (word.lexicalForm).includes (utilities.simplifyGreek (utilities.englishToGreek (event.target.value.trim ()))));
+					
+					update ();
+				} } />
+				
+				${ pageData.words.map (word => Word (word)) }
 			</div>`
 	},
 	
@@ -169,11 +179,11 @@ const pages = {
 				<input id = "parserInput" class = "mediumFont" placeholder = "Enter Greek..." oninput = ${ event => {
 					pageData.words = [];
 					
-					const words = event.target.value.split (" ");
+					const words = event.target.value.split (" ").map (word => utilities.simplifyGreek (utilities.englishToGreek (word)));
 					
 					for (let i = 0; i < words.length; i++) {
 						for (let j = 0; j < constants.vocabulary.length; j++) {
-							if (constants.vocabulary [j].forms.length === 0 && utilities.simplifyWord (constants.vocabulary [j].lexicalForm).toLowerCase () === utilities.simplifyWord (words [i]).toLowerCase ()) {
+							if (constants.vocabulary [j].forms.length === 0 && utilities.simplifyGreek (constants.vocabulary [j].lexicalForm) === words [i]) {
 								pageData.words.push ({
 									word: constants.vocabulary [j]
 								});
@@ -181,7 +191,7 @@ const pages = {
 							
 							else {
 								for (let k = 0; k < constants.vocabulary [j].forms.length; k++) {
-									if (utilities.simplifyWord (constants.vocabulary [j].forms [k].text).toLowerCase () === utilities.simplifyWord (words [i]).toLowerCase ()) {
+									if (utilities.simplifyGreek (constants.vocabulary [j].forms [k].text) === words [i]) {
 										pageData.words.push ({
 											word: constants.vocabulary [j],
 											form: constants.vocabulary [j].forms [k]
