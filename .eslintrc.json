@@ -249,7 +249,7 @@
 		"sort-keys": "off",
 		"sort-vars": "off",
 		"spaced-comment": "off",
-		"strict": ["error", "global"],
+		"strict": ["error", "never"],
 		"symbol-description": "off",
 		"vars-on-top": "error",
 		"yoda": "error",

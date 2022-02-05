@@ -69,7 +69,9 @@ const pages = {
 					update ();
 				} } />
 				
-				${ pageData.words.map (word => Word (word)) }
+				<div class = "flexTop flexWrap fullWidth mediumGap">
+					${ pageData.words.map (word => Word (word)) }
+				</div>
 			</div>`
 	},
 	
@@ -205,7 +207,7 @@ const pages = {
 					update ();
 				} } />
 				
-				<div id = "parserWords" class = "flex fullWidth mediumGap">
+				<div id = "parserWords" class = "flex flexWrap fullWidth mediumGap">
 					${ pageData.words.map (word => Word (word.word, word.form === undefined ? undefined : [word.form])) }
 				</div>
 			</div>`

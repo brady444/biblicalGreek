@@ -9,7 +9,7 @@ const Header = () => html
 
 const SectionGroup = content => html
 	`<div class = "sectionGroup flexColumn fullWidth largePadding">
-		<div class = "flexTop extraLargeGap">${ content }</div>
+		<div class = "flexTop flexWrap extraLargeGap">${ content }</div>
 	</div>`;
 
 const Section = (name, content) => html
@@ -68,21 +68,39 @@ const Word = (word, forms) => html
 			null
 		}
 		
-		<div class = "flexColumn extraSmallGap">
-			${ word.definition.split ("; ").map (definition => html`
-				<p class = "smallFont">${ definition }</p>
-			`) }
-		</div>
+		${ word.type ? html
+			`<p class = "smallFont">${ word.type }</p>` :
+			null
+		}
+		
+		${ word.strongsNumber || word.gkNumber ? html
+			`<div class = "flexColumn extraSmallGap">
+				${ word.strongsNumber ? html
+					`<p class = "smallFont">Strong's Number: ${ word.strongsNumber }</p>` :
+					null
+				}
+				
+				${ word.gkNumber ? html
+					`<p class = "smallFont">GK Number: ${ word.gkNumber }</p>` :
+					null
+				}
+			</div>` :
+			null
+		}
 		
 		<p class = "smallFont">Frequency: ${ word.frequency.toLocaleString () }</p>
+		
+		<div class = "flexColumn extraSmallGap">
+			${ (word.gloss || word.shortGloss).split ("\n").map (line => html`<p class = "smallFont">${ line }</p>`) }
+		</div>
 		
 		${ (forms || word.forms).length > 0 ? html
 			`${ (forms || word.forms).map (form => html
 				`<div class = "fullWidth flexColumnLeft extraSmallGap">
 					<p class = "smallFont">${ form.text }</p>
 					
-					${ form.forms.map (_form => html
-						`<p class = "smallFont gray">${ _form.case } ${ _form.number } ${ _form.gender } (${ _form.frequency.toLocaleString () })</p>`
+					${ form.uses.map (use => html
+						`<p class = "smallFont gray">${ use.case } ${ use.number } ${ use.gender } (${ use.frequency.toLocaleString () })</p>`
 					) }
 				</div>`
 			) }` :

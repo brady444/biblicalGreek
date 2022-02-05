@@ -13,6 +13,7 @@ p, a {
 	margin: 0;
 	font-family: Times New Roman;
 	color: white;
+	text-align: center;
 	text-decoration: none;
 	overflow-wrap: anywhere;
 }
@@ -28,6 +29,11 @@ input, select {
 	background: #2A2A2A;
 	color: white;
 	box-sizing: border-box;
+}
+
+input {
+	width: 600px;
+	max-width: 100%;
 }
 
 @media (hover: hover) {
@@ -108,6 +114,10 @@ input, select {
 	align-items: flex-start;
 }
 
+.flexWrap {
+	flex-wrap: wrap;
+}
+
 .fullWidth {
 	width: 100%;
 }
@@ -148,6 +158,10 @@ input, select {
 	gap: 50px;
 }
 
+.extraSmallFont {
+	font-size: 15px;
+}
+
 .smallFont {
 	font-size: 18px;
 }
@@ -177,10 +191,6 @@ input, select {
 	width: 100%;
 }
 
-.sectionGroup > div {
-	flex-wrap: wrap;
-}
-
 .sectionGroup:nth-child(even) {
 	background: #2C2C2C;
 }
@@ -199,12 +209,9 @@ input, select {
 }
 
 .vocabularyWord {
+	width: 460px;
 	background-color: #2A2A2A;
 	box-sizing: border-box;
-}
-
-.vocabularyWord > p {
-	text-align: center;
 }
 
 .vocabularyForm {
@@ -240,7 +247,6 @@ input, select {
 	font-size: 4vmin;
 	height: 8vmin;
 	padding: 0;
-	text-align: center;
 	transition: .25s background-color;
 	width: 8vmin;
 	overflow-wrap: unset;
@@ -258,22 +264,6 @@ input, select {
 	cursor: unset !important;
 }
 
-#dictionary > input, #dictionary > div {
-	width: 450px;
-	max-width: 100%;
-}
-
-#parserInput {
-	width: 600px;
-	max-width: 100%;
-}
-
-#parserWords {
-	width: 100%;
-	flex-wrap: wrap;
-}
-
 #parserWords > .vocabularyWord {
-	width: 450px;
 	height: 300px;
 }
