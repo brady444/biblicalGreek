@@ -213,7 +213,7 @@ const pages = {
 					update ();
 				} } />
 				
-				<div id = "parserWords" class = "flex flexWrap fullWidth mediumGap">
+				<div id = "parserWords" class = "flexTop flexWrap fullWidth mediumGap">
 					${ pageData.words.map (word => Word (word.word, word.forms)) }
 				</div>
 			</div>`
