@@ -185,20 +185,26 @@ const pages = {
 					
 					for (let i = 0; i < words.length; i++) {
 						for (let j = 0; j < constants.vocabulary.length; j++) {
-							if (constants.vocabulary [j].forms.length === 0 && utilities.simplifyGreek (constants.vocabulary [j].lexicalForm) === words [i]) {
+							if (constants.vocabulary [j].forms.length === 0 && utilities.simplifyGreek (constants.vocabulary [j].lexicalForm) === utilities.simplifyGreek (words [i])) {
 								pageData.words.push ({
 									word: constants.vocabulary [j]
 								});
 							}
 							
 							else {
+								const forms = [];
+								
 								for (let k = 0; k < constants.vocabulary [j].forms.length; k++) {
-									if (utilities.simplifyGreek (constants.vocabulary [j].forms [k].text) === words [i]) {
-										pageData.words.push ({
-											word: constants.vocabulary [j],
-											form: constants.vocabulary [j].forms [k]
-										});
+									if (utilities.simplifyGreek (constants.vocabulary [j].forms [k].text) === utilities.simplifyGreek (words [i])) {
+										forms.push (constants.vocabulary [j].forms [k]);
 									}
+								}
+								
+								if (forms.length > 0) {
+									pageData.words.push ({
+										word: constants.vocabulary [j],
+										forms: forms
+									});
 								}
 							}
 						}
@@ -208,7 +214,7 @@ const pages = {
 				} } />
 				
 				<div id = "parserWords" class = "flex flexWrap fullWidth mediumGap">
-					${ pageData.words.map (word => Word (word.word, word.form === undefined ? undefined : [word.form])) }
+					${ pageData.words.map (word => Word (word.word, word.forms)) }
 				</div>
 			</div>`
 	},
@@ -339,8 +345,8 @@ const pages = {
 				pageData.currentWord = utilities.randomElement (pageData.remainingWords);
 				
 				for (let j = 0; j < pageData.currentWord.forms.length; j++) {
-					for (let k = 0; k < pageData.currentWord.forms [j].forms.length; k++) {
-						pageData.currentElements [pageData.currentWord.forms [j].forms [k].case + pageData.currentWord.forms [j].forms [k].number + pageData.currentWord.forms [j].forms [k].gender].text = pageData.currentWord.forms [j].text;
+					for (let k = 0; k < pageData.currentWord.forms [j].uses.length; k++) {
+						pageData.currentElements [pageData.currentWord.forms [j].uses [k].case + pageData.currentWord.forms [j].uses [k].number + pageData.currentWord.forms [j].uses [k].gender].text = pageData.currentWord.forms [j].text;
 					}
 				}
 				
@@ -350,7 +356,7 @@ const pages = {
 			pageData.getNewForm = () => {
 				pageData.currentForm = utilities.randomElement (pageData.currentWord.forms);
 				
-				pageData.remainingMatches = pageData.currentForm.forms.length;
+				pageData.remainingMatches = pageData.currentForm.uses.length;
 			};
 			
 			pageData.getNewWord ();

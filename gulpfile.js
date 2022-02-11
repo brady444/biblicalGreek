@@ -10,6 +10,8 @@ const concat = require ("gulp-concat");
 const replace = require ("gulp-replace");
 const browserSync = require ("browser-sync").create ();
 
+//todo linthtml?
+
 const lintcss = () =>
 	gulp.src ("src/*.css")
 		.pipe (styleLint ({
@@ -22,7 +24,7 @@ const lintcss = () =>
 			
 			config: {
 				rules: {
-				//todo
+					//todo
 				}
 			}
 		}));

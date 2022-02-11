@@ -263,7 +263,3 @@ input {
 	background-color: #d41c1c !important;
 	cursor: unset !important;
 }
-
-#parserWords > .vocabularyWord {
-	height: 300px;
-}
