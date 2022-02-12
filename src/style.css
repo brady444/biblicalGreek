@@ -142,6 +142,10 @@ input {
 	gap: 20px;
 }
 
+.extraSmallPadding {
+	padding: 5px;
+}
+
 .smallPadding {
 	padding: 10px;
 }

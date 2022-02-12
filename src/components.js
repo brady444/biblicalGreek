@@ -91,7 +91,7 @@ const Word = (word, forms) => html
 		<p class = "smallFont">Frequency: ${ word.frequency.toLocaleString () }</p>
 		
 		<div class = "flexColumn extraSmallGap">
-			${ (word.gloss || word.shortGloss).split ("\n").map (line => html`<p class = "smallFont">${ line }</p>`) }
+			${ word.shortGloss.split ("\n").map (line => html`<p class = "smallFont">${ line }</p>`) }
 		</div>
 		
 		${ (forms || word.forms).length > 0 ? html
