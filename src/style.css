@@ -142,6 +142,10 @@ input {
 	gap: 20px;
 }
 
+.mediumMargin {
+	margin: 15px;
+}
+
 .extraSmallPadding {
 	padding: 5px;
 }
@@ -186,6 +190,14 @@ input {
 	text-decoration: underline;
 }
 
+.link {
+	transition: color .25s;
+}
+
+.link:hover {
+	color: white;
+}
+
 .gray {
 	color: #AAA;
 }
@@ -199,17 +211,9 @@ input {
 	background: #2C2C2C;
 }
 
-.sectionLink {
-	transition: color .25s;
-}
-
-.sectionLink:hover {
-	color: white;
-}
-
-#header {
-	background-color: #111;
-	width: 100%;
+.dictionaryWord {
+	background-color: #2A2A2A;
+	cursor: pointer;
 }
 
 .vocabularyWord {
@@ -266,4 +270,9 @@ input {
 .incorrect {
 	background-color: #d41c1c !important;
 	cursor: unset !important;
+}
+
+#header {
+	background-color: #111;
+	width: 100%;
 }

@@ -5,7 +5,7 @@
 const pages = {
 	main: {
 		content: () => html
-			`<div id = "sections" class = "pageContainer flexColumnTop fullWidth">
+			`<div class = "pageContainer flexColumnTop fullWidth">
 				${ SectionGroup ([
 					Section ("Bill Mounce", [
 						SectionLink ("BillMounce.com", null, "https://billmounce.com"),
@@ -58,20 +58,59 @@ const pages = {
 	
 	dictionary: {
 		setup: () => {
-			pageData.words = constants.vocabulary;
+			pageData.setWords = words => {
+				pageData.words = {};
+				
+				for (let i = 0; i < words.length; i++) {
+					const letter = utilities.simplifyGreek (words [i].lexicalForm.charAt (0)).toUpperCase ();
+					
+					if (pageData.words [letter] === undefined) {
+						pageData.words [letter] = [];
+					}
+					
+					pageData.words [letter].push (words [i]);
+				}
+			};
+			
+			pageData.setWords (constants.vocabulary);
 		},
 		
 		content: () => html
-			`<div id = "dictionary" class = "pageContainer flexColumnTop fullWidth mediumGap mediumPadding">
-				<input class = "mediumFont" placeholder = "Search..." oninput = ${ event => {
-					pageData.words = constants.vocabulary.filter (word => utilities.simplifyGreek (word.lexicalForm).includes (utilities.simplifyGreek (utilities.englishToGreek (event.target.value.trim ()))));
+			`<div class = "pageContainer flexColumnTop">
+				<input class = "mediumMargin mediumFont" placeholder = "Search..." oninput = ${ event => {
+					pageData.setWords (constants.vocabulary.filter (word =>
+						utilities.simplifyGreek (word.lexicalForm).includes (utilities.simplifyGreek (utilities.englishToGreek (event.target.value)))
+					));
 					
 					update ();
 				} } />
 				
-				<div class = "flexTop flexWrap fullWidth mediumGap">
-					${ pageData.words.map (word => Word (word)) }
+				<div class = "flexTop flexWrap fullWidth">
+					${ Object.keys (pageData.words).map (letter =>
+						SectionGroup (
+							Section (letter, html
+								`<div class = "flex flexWrap largeGap">
+									${ pageData.words [letter].map (word =>
+										SectionLink (word.lexicalForm, () => navigate ("word", {
+											word: word
+										}))
+									) }
+								</div>`
+							)
+						)
+					) }
 				</div>
+			</div>`
+	},
+	
+	word: {
+		setup: data => {
+			pageData.word = data.word;
+		},
+		
+		content: () => html
+			`<div class = "pageContainer flexColumnTop mediumGap mediumPadding">
+				${ Word (pageData.word) }
 			</div>`
 	},
 	
@@ -178,7 +217,7 @@ const pages = {
 		
 		content: () => html
 			`<div class = "pageContainer flexColumnTop fullWidth mediumGap mediumPadding">
-				<input id = "parserInput" class = "mediumFont" placeholder = "Enter Greek..." oninput = ${ event => {
+				<input class = "mediumFont" placeholder = "Enter Greek..." oninput = ${ event => {
 					pageData.words = [];
 					
 					const words = event.target.value.split (" ").map (word => utilities.simplifyGreek (utilities.englishToGreek (word)));
@@ -213,7 +252,7 @@ const pages = {
 					update ();
 				} } />
 				
-				<div id = "parserWords" class = "flexTop flexWrap fullWidth mediumGap">
+				<div class = "flexTop flexWrap fullWidth mediumGap">
 					${ pageData.words.map (word => Word (word.word, word.forms)) }
 				</div>
 			</div>`

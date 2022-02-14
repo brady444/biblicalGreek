@@ -83,13 +83,12 @@ const watch = callback => {
 		ui: false,
 		open: false,
 		notify: false,
-		ghostMode: false
+		ghostMode: false,
+		online: false
 	});
 	
 	gulp.watch ("src", callback => {
-		gulp.series (minifyhtml, minifycss, minifyjs) ();
-		
-		browserSync.reload ();
+		gulp.series (minifyhtml, minifycss, minifyjs, () => browserSync.reload ()) ();
 		
 		callback ();
 	});

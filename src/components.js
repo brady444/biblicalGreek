@@ -20,7 +20,7 @@ const Section = (name, content) => html
 	</div>`;
 
 const SectionLink = (text, onclick, href) => html
-	`<a class = "sectionLink smallFont gray" onclick = ${ onclick } href = ${ href }>${ text }</a>`;
+	`<a class = "link smallFont gray" onclick = ${ onclick } href = ${ href }>${ text }</a>`;
 
 const ParadigmLabel = text => html
 	`<p class = "paradigmLabel flex">${ text }</p>`;
@@ -56,7 +56,7 @@ const Paradigm = (columnLabels, rows, elementClickCallback) => html
 
 const Question = (text, underlined) => html
 	`<div class = "flex">
-		<p class = "extraLargeFont">Where does <span id = "questionElement" class = ${ underlined ? "underlined" : null }>${ text }</span> go?</p>
+		<p class = "extraLargeFont">Where does <span class = ${ underlined ? "underlined" : null }>${ text }</span> go?</p>
 	</div>`;
 
 const Word = (word, forms) => html

@@ -15,6 +15,8 @@ const navigate = (page, data) => {
 		pages [currentPage].setup (data);
 	}
 	
+	render (document.body, html``);
+	
 	update ();
 	
 	history.pushState (null, null);
