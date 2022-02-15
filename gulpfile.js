@@ -30,7 +30,7 @@ const lintcss = () =>
 		}));
 
 const lintjs = () =>
-	gulp.src ("src/*.js")
+	gulp.src ("src/**/*.js")
 		.pipe (esLint ({
 			configFile: ".eslintrc.json"
 		}))
@@ -70,7 +70,7 @@ const minifycss = () =>
 		.pipe (gulp.dest ("docs"));
 
 const minifyjs = () =>
-	gulp.src (["src/imports.js", "src/constants.js", "src/utilities.js", "src/components.js", "src/pages.js", "src/main.js"])
+	gulp.src (["src/imports.js", "src/constants.js", "src/utilities.js", "src/components.js", "src/pages.js", "src/pages/*.js", "src/main.js"])
 		.pipe (uglify ())
 		.pipe (concat ("main.min.js"))
 		.pipe (replace (/[\t\n]/gi, ""))
