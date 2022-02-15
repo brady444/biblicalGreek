@@ -1,6 +1,6 @@
-let currentPage = "main";
-
 let pageData = {};
+
+let currentPage = "main";
 
 const update = () =>
 	render (document.body, html`${ Header () } ${ pages [currentPage].content () }`);

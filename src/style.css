@@ -26,7 +26,7 @@ input, select {
 	outline: none;
 	border: none;
 	padding: 10px;
-	background: #2A2A2A;
+	background: #2C2C2C;
 	color: white;
 	box-sizing: border-box;
 }
@@ -212,13 +212,13 @@ input {
 }
 
 .dictionaryWord {
-	background-color: #2A2A2A;
+	background-color: #2C2C2C;
 	cursor: pointer;
 }
 
 .vocabularyWord {
 	width: 460px;
-	background-color: #2A2A2A;
+	background-color: #2C2C2C;
 	box-sizing: border-box;
 }
 
@@ -227,7 +227,7 @@ input {
 }
 
 .paradigm {
-	background-color: #2A2A2A;
+	background-color: #2C2C2C;
 	width: 90vmin;
 }
 
