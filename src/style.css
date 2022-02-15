@@ -206,11 +206,6 @@ input, select {
 	box-sizing: border-box;
 }
 
-.paradigm {
-	background-color: #2C2C2C;
-	width: 90vmin;
-}
-
 .paradigmRow {
 	width: 100%;
 }
@@ -255,4 +250,9 @@ input, select {
 #header {
 	background-color: #111;
 	width: 100%;
+}
+
+#paradigm {
+	background-color: #2C2C2C;
+	width: 90vmin;
 }

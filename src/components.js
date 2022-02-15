@@ -2,11 +2,6 @@
 /* eslint-disable no-unexpected-multiline */
 /* eslint-disable implicit-arrow-linebreak */
 
-const Header = () => html
-	`<div id = "header" class = "flex fullWidth mediumFont">
-		<a class = "smallPadding" onclick = ${ () => navigate ("main") }>Biblical Greek</a>
-	</div>`;
-
 const SectionGroup = content => html
 	`<div class = "sectionGroup flexColumn fullWidth largePadding">
 		<div class = "flexTop flexWrap extraLargeGap">${ content }</div>
@@ -37,7 +32,7 @@ const ParadigmElement = (element, onclick) => html
 	</div>`;
 
 const Paradigm = (columnLabels, rows, elementClickCallback) => html
-	`<div class = "paradigm flexColumn smallGap mediumPadding">
+	`<div id = "paradigm" class = "flexColumn smallGap mediumPadding">
 		${ columnLabels.length > 0 ? html
 			`<div class = "paradigmRow flex smallGap">
 				${ ParadigmLabel () }

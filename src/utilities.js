@@ -11,8 +11,7 @@ const utilities = {
 			.replaceAll ("ς", "σ")
 			.replaceAll ("⸂", "")
 			.replaceAll ("⸃", "")
-			.toLowerCase ()
-			.trim (),
+			.toLowerCase (),
 	
 	englishToGreek: text =>
 		text.replaceAll ("a", "α")

@@ -13,7 +13,10 @@ pages.parser = {
 				<input class = "fullWidth mediumFont" placeholder = "Enter Greek..." oninput = ${ event => {
 					pageData.words = [];
 					
-					const words = event.target.value.split (" ").map (word => utilities.simplifyGreek (utilities.englishToGreek (word)));
+					const words = event.target.value
+						.trim ()
+						.split (" ")
+						.map (word => utilities.simplifyGreek (utilities.englishToGreek (word)));
 					
 					for (let i = 0; i < words.length; i++) {
 						for (let j = 0; j < constants.vocabulary.length; j++) {

@@ -26,7 +26,7 @@ pages.dictionary = {
 			<div class = "inputContainer flex mediumPadding">
 				<input class = "fullWidth mediumFont" placeholder = "Search..." oninput = ${ event => {
 					pageData.setWords (constants.vocabulary.filter (word =>
-						utilities.simplifyGreek (word.lexicalForm).includes (utilities.simplifyGreek (utilities.englishToGreek (event.target.value)))
+						utilities.simplifyGreek (word.lexicalForm).includes (utilities.simplifyGreek (utilities.englishToGreek (event.target.value.trim ())))
 					));
 					
 					update ();
