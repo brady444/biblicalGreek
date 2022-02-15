@@ -25,7 +25,7 @@ const SectionLink = (text, onclick, href) => html
 const ParadigmLabel = text => html
 	`<p class = "paradigmLabel flex">${ text }</p>`;
 
-const ParadigmElement = (element, clickCallback) => html
+const ParadigmElement = (element, onclick) => html
 	`<div class = "paradigmElement flex">
 		<p class = ${ "flex" + (element.answered ?
 			element.underlined ?
@@ -33,7 +33,7 @@ const ParadigmElement = (element, clickCallback) => html
 				" answered" :
 			element.incorrect ?
 				" incorrect" :
-				"") } onclick = ${ clickCallback ? () => clickCallback (element) : null }>${ element.answered ? element.text : null }</p>
+				"") } onclick = ${ onclick ? () => onclick (element) : null }>${ element.answered ? element.text : null }</p>
 	</div>`;
 
 const Paradigm = (columnLabels, rows, elementClickCallback) => html

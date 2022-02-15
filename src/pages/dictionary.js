@@ -22,14 +22,16 @@ pages.dictionary = {
 	},
 	
 	content: () => html
-		`<div class = "pageContainer flexColumnTop">
-			<input class = "mediumMargin mediumFont" placeholder = "Search..." oninput = ${ event => {
-				pageData.setWords (constants.vocabulary.filter (word =>
-					utilities.simplifyGreek (word.lexicalForm).includes (utilities.simplifyGreek (utilities.englishToGreek (event.target.value)))
-				));
-				
-				update ();
-			} } />
+		`<div class = "pageContainer flexColumnTop fullWidth">
+			<div class = "inputContainer flex mediumPadding">
+				<input class = "fullWidth mediumFont" placeholder = "Search..." oninput = ${ event => {
+					pageData.setWords (constants.vocabulary.filter (word =>
+						utilities.simplifyGreek (word.lexicalForm).includes (utilities.simplifyGreek (utilities.englishToGreek (event.target.value)))
+					));
+					
+					update ();
+				} } />
+			</div>
 			
 			<div class = "flexTop flexWrap fullWidth">
 				${ Object.keys (pageData.words).map (letter =>

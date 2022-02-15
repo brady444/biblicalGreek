@@ -1,12 +1,21 @@
-::-webkit-scrollbar {
-	display: none;
+@media (hover: hover) {
+	.paradigmElement > p:hover {
+		background-color: #555;
+	}
+	
+	.paradigmElement > p:active {
+		background-color: #444;
+	}
+}
+
+html {
+	color-scheme: dark;
 }
 
 body {
-	width: 100%;
-	height: 100%;
 	margin: 0;
 	background-color: #222;
+	overflow-y: overlay;
 }
 
 p, a {
@@ -28,36 +37,6 @@ input, select {
 	padding: 10px;
 	background: #2C2C2C;
 	color: white;
-	box-sizing: border-box;
-}
-
-input {
-	width: 600px;
-	max-width: 100%;
-}
-
-@media (hover: hover) {
-	button:hover {
-		background-color: #3A3A3A;
-	}
-	
-	button:active {
-		background-color: #333;
-	}
-	
-	.paradigmElement > p:hover {
-		background-color: #555;
-	}
-	
-	.paradigmElement > p:active {
-		background-color: #444;
-	}
-}
-
-.pageContainer {
-	width: 100%;
-	height: calc(100vh - 46px);
-	overflow-y: scroll;
 	box-sizing: border-box;
 }
 
@@ -202,28 +181,29 @@ input {
 	color: #AAA;
 }
 
+.pageContainer {
+	height: calc(100vh - 46px);
+	box-sizing: border-box;
+}
+
+.inputContainer {
+	width: 600px;
+	max-width: 100%;
+	box-sizing: border-box;
+}
+
 .sectionGroup {
 	box-sizing: border-box;
-	width: 100%;
 }
 
 .sectionGroup:nth-child(even) {
 	background: #2C2C2C;
 }
 
-.dictionaryWord {
-	background-color: #2C2C2C;
-	cursor: pointer;
-}
-
 .vocabularyWord {
-	width: 460px;
+	width: 450px;
 	background-color: #2C2C2C;
 	box-sizing: border-box;
-}
-
-.vocabularyForm {
-	width: 100%;
 }
 
 .paradigm {

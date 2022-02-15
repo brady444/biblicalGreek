@@ -8,7 +8,7 @@ pages.word = {
 	},
 	
 	content: () => html
-		`<div class = "pageContainer flexColumnTop mediumGap mediumPadding">
+		`<div class = "pageContainer flexColumnTop fullWidth mediumGap mediumPadding">
 			${ Word (pageData.word) }
 		</div>`
 };
