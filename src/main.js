@@ -19,7 +19,7 @@ const navigate = fullPath => {
 	currentPage = pages [path [0]] ? path [0] : "main";
 	
 	//change path
-	history.pushState (null, "", currentPage === "main" ? "/" : "#/" + fullPath);
+	utilities.setPath (currentPage === "main" ? "" : fullPath);
 	
 	//reset page data
 	pageData = {};
