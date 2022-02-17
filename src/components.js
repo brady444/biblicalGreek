@@ -18,11 +18,11 @@ const SectionLink = (text, onclick, href) => html
 	`<a class = "link smallFont gray" onclick = ${ onclick } href = ${ href }>${ text }</a>`;
 
 const ParadigmLabel = text => html
-	`<p class = "paradigmLabel flex">${ text }</p>`;
+	`<p class = "paradigmLabel flex flexExpand mediumFont">${ text }</p>`;
 
 const ParadigmElement = (element, onclick) => html
-	`<div class = "paradigmElement flex">
-		<p class = ${ "flex" + (element.answered ?
+	`<div class = "flex flexExpand">
+		<p class = ${ "paradigmElementText flex" + (element.answered ?
 			element.underlined ?
 				" answered underlined" :
 				" answered" :
@@ -34,14 +34,14 @@ const ParadigmElement = (element, onclick) => html
 const Paradigm = (columnLabels, rows, elementClickCallback) => html
 	`<div id = "paradigm" class = "flexColumn smallGap mediumPadding">
 		${ columnLabels.length > 0 ? html
-			`<div class = "paradigmRow flex smallGap">
+			`<div class = "flex fullWidth smallGap">
 				${ ParadigmLabel () }
 				
 				${ columnLabels.map (label => ParadigmLabel (label)) }
 			</div>` : null }
 		
 		${ rows.map (row => html
-			`<div class = "paradigmRow flex mediumGap">
+			`<div class = "flex fullWidth mediumGap">
 				${ ParadigmLabel (row.label) }
 				
 				${ row.elements.map (element => ParadigmElement (element, elementClickCallback)) }

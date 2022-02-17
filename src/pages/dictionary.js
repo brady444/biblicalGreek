@@ -39,9 +39,7 @@ pages.dictionary = {
 						Section (letter, html
 							`<div class = "flex flexWrap largeGap">
 								${ pageData.words [letter].map (word =>
-									SectionLink (word.lexicalForm, () => navigate ("word", {
-										word: word
-									}))
+									SectionLink (word.lexicalForm, () => navigate ("word/" + word.lexicalForm))
 								) }
 							</div>`
 						)

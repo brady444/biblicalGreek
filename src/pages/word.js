@@ -3,8 +3,12 @@
 /* eslint-disable implicit-arrow-linebreak */
 
 pages.word = {
-	setup: data => {
-		pageData.word = data.word;
+	setup: path => {
+		pageData.word = constants.vocabulary.find (word => word.lexicalForm === path [1]);
+		
+		if (pageData.word === undefined) {
+			navigate ("dictionary");
+		}
 	},
 	
 	content: () => html

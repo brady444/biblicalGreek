@@ -12,25 +12,27 @@ const update = () =>
 		${ pages [currentPage].content () }`
 	);
 
-const navigate = (page, data) => {
-	currentPage = page;
+const navigate = fullPath => {
+	const path = fullPath.split ("/").map (component => decodeURIComponent (component));
+	
+	//set currentPage (use main page if given page does not exist)
+	currentPage = pages [path [0]] ? path [0] : "main";
+	
+	//change path
+	history.pushState (null, "", currentPage === "main" ? "/" : "#/" + fullPath);
 	
 	//reset page data
 	pageData = {};
 	
-	if (pages [currentPage].setup) {
-		pages [currentPage].setup (data);
-	}
+	pages [currentPage].setup?. (path);
 	
 	render (document.body, html``);
 	
 	update ();
-	
-	history.pushState (null, null);
 };
 
-window.addEventListener ("popstate", () => {
-	navigate ("main");
+window.addEventListener ("hashchange", () => {
+	navigate (location.hash.slice (2));
 });
 
-update ();
+navigate (location.hash.slice (2));

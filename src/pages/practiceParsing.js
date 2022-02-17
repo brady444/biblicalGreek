@@ -146,63 +146,63 @@ pages.practiceParsing = {
 	},
 	
 	content: () => html
-			`<div class = "pageContainer flexColumn fullWidth mediumGap mediumPadding">
-				<p class = "largeFont">${ pageData.currentWord.lexicalForm }</p>
+		`<div class = "pageContainer flexColumn fullWidth mediumGap mediumPadding">
+			<p class = "largeFont">${ pageData.currentWord.lexicalForm }</p>
+			
+			${ Paradigm ([
+				"Masculine (2nd)",
+				"Feminine (1st)",
+				"Neuter (2nd)"
+			], pageData.rows, element => {
+				if (element.answered) {
+					return;
+				}
 				
-				${ Paradigm ([
-					"Masculine (2nd)",
-					"Feminine (1st)",
-					"Neuter (2nd)"
-				], pageData.rows, element => {
-					if (element.answered) {
-						return;
-					}
+				//if the answer is correct
+				if (pageData.currentForm.text === element.text) {
+					pageData.remainingMatches -= 1;
 					
-					//if the answer is correct
-					if (pageData.currentForm.text === element.text) {
-						pageData.remainingMatches -= 1;
+					element.answered = true;
+					
+					//if we have answered all elements for this form
+					if (pageData.remainingMatches < 1) {
+						//set incorrect to false for all elements
+						for (let i = 0; i < Object.values (pageData.currentElements).length; i++) {
+							Object.values (pageData.currentElements) [i].incorrect = false;
+						}
 						
-						element.answered = true;
+						pageData.currentWord.forms.splice (pageData.currentWord.forms.indexOf (pageData.currentForm), 1);
 						
-						//if we have answered all elements for this form
-						if (pageData.remainingMatches < 1) {
-							//set incorrect to false for all elements
-							for (let i = 0; i < Object.values (pageData.currentElements).length; i++) {
-								Object.values (pageData.currentElements) [i].incorrect = false;
-							}
+						if (pageData.currentWord.forms.length < 1) {
+							pageData.remainingWords.splice (pageData.remainingWords.indexOf (pageData.currentWord), 1);
 							
-							pageData.currentWord.forms.splice (pageData.currentWord.forms.indexOf (pageData.currentForm), 1);
-							
-							if (pageData.currentWord.forms.length < 1) {
-								pageData.remainingWords.splice (pageData.remainingWords.indexOf (pageData.currentWord), 1);
-								
-								if (pageData.remainingWords.length < 1) {
-									pages [currentPage].setup ();
-								}
-								
-								else {
-									//set answered to false for all elements
-									for (let i = 0; i < Object.values (pageData.currentElements).length; i++) {
-										Object.values (pageData.currentElements) [i].answered = false;
-									}
-									
-									pageData.getNewWord ();
-								}
+							if (pageData.remainingWords.length < 1) {
+								pages [currentPage].setup ();
 							}
 							
 							else {
-								pageData.getNewForm ();
+								//set answered to false for all elements
+								for (let i = 0; i < Object.values (pageData.currentElements).length; i++) {
+									Object.values (pageData.currentElements) [i].answered = false;
+								}
+								
+								pageData.getNewWord ();
 							}
 						}
+						
+						else {
+							pageData.getNewForm ();
+						}
 					}
-					
-					else {
-						element.incorrect = true;
-					}
-					
-					update ();
-				}) }
+				}
 				
-				${ Question (pageData.currentForm.text) }
-			</div>`
+				else {
+					element.incorrect = true;
+				}
+				
+				update ();
+			}) }
+			
+			${ Question (pageData.currentForm.text) }
+		</div>`
 };

@@ -29,11 +29,11 @@ pages.main = {
 				]),
 				
 				Section ("Paradigms", [
-					SectionLink ("View", () => navigate ("viewParadigms", {
+					SectionLink ("View", () => navigate ("paradigm", {
 						paradigmName: Object.keys (constants.paradigms) [0]
 					})),
 					
-					SectionLink ("Practice", () => navigate ("practiceParadigms", {
+					SectionLink ("Practice", () => navigate ("practiceParadigm", {
 						paradigmName: Object.keys (constants.paradigms) [0]
 					}))
 				]),

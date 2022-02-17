@@ -1,9 +1,13 @@
 @media (hover: hover) {
-	.paradigmElement > p:hover {
+	.link:hover {
+		color: white;
+	}
+	
+	.paradigmElementText:hover {
 		background-color: #555;
 	}
 	
-	.paradigmElement > p:active {
+	.paradigmElementText:active {
 		background-color: #444;
 	}
 }
@@ -97,6 +101,10 @@ input, select {
 	flex-wrap: wrap;
 }
 
+.flexExpand {
+	flex: 1;
+}
+
 .fullWidth {
 	width: 100%;
 }
@@ -173,10 +181,6 @@ input, select {
 	transition: color .25s;
 }
 
-.link:hover {
-	color: white;
-}
-
 .gray {
 	color: #AAA;
 }
@@ -206,34 +210,18 @@ input, select {
 	box-sizing: border-box;
 }
 
-.paradigmRow {
-	width: 100%;
-}
-
-.paradigmRow > p, .paradigmRow > div {
-	flex: 1;
-}
-
-.paradigmLabel {
-	font-size: 2.25vmin;
-	padding: 0;
-	white-space: pre;
-}
-
 .paradigmLabel:first-child {
 	justify-content: flex-end;
 }
 
-.paradigmElement > p {
+.paradigmElementText {
 	background-color: #444;
 	cursor: pointer;
 	font-size: 4vmin;
 	height: 8vmin;
-	padding: 0;
 	transition: .25s background-color;
 	width: 8vmin;
 	overflow-wrap: unset;
-	user-select: none;
 }
 
 .answered {
@@ -249,7 +237,6 @@ input, select {
 
 #header {
 	background-color: #111;
-	width: 100%;
 }
 
 #paradigm {

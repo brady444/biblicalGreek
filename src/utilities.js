@@ -1,4 +1,7 @@
 const utilities = {
+	setPath: path =>
+		history.replaceState (null, "", "#/" + path),
+	
 	randomInteger: (minimum, maximum) =>
 		Math.floor (Math.random () * (maximum - minimum + 1)) + minimum,
 	
