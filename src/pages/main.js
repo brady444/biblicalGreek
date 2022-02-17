@@ -23,25 +23,21 @@ pages.main = {
 			
 			${ SectionGroup ([
 				Section ("Vocabulary", [
-					SectionLink ("Dictionary", () => navigate ("dictionary")),
+					SectionLink ("Dictionary", "dictionary"),
 					
 					SectionLink ("Practice", null, "https://quizlet.com/brady2384765/folders/biblical-greek-vocabulary")
 				]),
 				
 				Section ("Paradigms", [
-					SectionLink ("View", () => navigate ("paradigm", {
-						paradigmName: Object.keys (constants.paradigms) [0]
-					})),
+					SectionLink ("View", "paradigm"),
 					
-					SectionLink ("Practice", () => navigate ("practiceParadigm", {
-						paradigmName: Object.keys (constants.paradigms) [0]
-					}))
+					SectionLink ("Practice", "practiceParadigm")
 				]),
 				
 				Section ("Parsing", [
-					SectionLink ("Parser", () => navigate ("parser")),
+					SectionLink ("Parser", "parser"),
 					
-					SectionLink ("Practice", () => navigate ("practiceParsing", { forms: constants.parsingForms }))
+					SectionLink ("Practice", "practiceParsing")
 				])
 			]) }
 			
@@ -49,7 +45,7 @@ pages.main = {
 				Section ("Other", [
 					SectionLink ("Windows Typing Guide", null, "https://www.ctsfw.edu/wp-content/uploads/2016/02/Greek-Unicode-Keyboard-Input-Windows-10.pdf"),
 					
-					SectionLink ("About", () => navigate ("about"))
+					SectionLink ("About", "about")
 				])
 			]) }
 		</div>`

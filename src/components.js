@@ -14,8 +14,8 @@ const Section = (name, content) => html
 		${ content }
 	</div>`;
 
-const SectionLink = (text, onclick, href) => html
-	`<a class = "link smallFont gray" onclick = ${ onclick } href = ${ href }>${ text }</a>`;
+const SectionLink = (text, path, href) => html
+	`<a class = "link smallFont gray" href = ${ path ? "#/" + path : href }>${ text }</a>`;
 
 const ParadigmLabel = text => html
 	`<p class = "paradigmLabel flex flexExpand mediumFont">${ text }</p>`;
