@@ -9,8 +9,6 @@ pages.about = {
 			
 			<p class = "smallFont">Some data is modified.</p>
 			
-			<p class = "smallFont">Data may not be accurate.</p>
-			
-			<p class = "smallFont">Word and form frequencies may not be accurate.</p>
+			<p class = "smallFont">Data may be missing or inaccurate.</p>
 		</div>`
 };

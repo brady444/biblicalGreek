@@ -6,7 +6,7 @@
 const update = () =>
 	render (document.body, html
 		`<div id = "header" class = "flex fullWidth mediumFont">
-			<a class = "smallPadding" onclick = ${ () => navigate ("main") }>Biblical Greek</a>
+			<a class = "smallPadding" href = "#">Biblical Greek</a>
 		</div>
 		
 		${ pages [currentPage].content () }`
@@ -24,7 +24,9 @@ const navigate = fullPath => {
 	//reset page data
 	pageData = {};
 	
-	pages [currentPage].setup?. (path);
+	if (pages [currentPage].setup?. (path) === false) {
+		return;
+	}
 	
 	render (document.body, html``);
 	

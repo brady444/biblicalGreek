@@ -103,7 +103,7 @@
 		
 		"class-methods-use-this": "error",
 		"complexity": "error",
-		"consistent-return": "error",
+		"consistent-return": "off",
 		"consistent-this": "error",
 		"curly": "error",
 		"default-case": "error",

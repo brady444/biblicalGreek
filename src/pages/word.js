@@ -8,6 +8,8 @@ pages.word = {
 		
 		if (pageData.word === undefined) {
 			navigate ("dictionary");
+			
+			return false;
 		}
 	},
 	
