@@ -22,7 +22,7 @@ pages.dictionary = {
 	},
 	
 	content: () => html
-		`<div class = "pageContainer flexColumnTop fullWidth">
+		`<div class = "pageContainer flexColumnTop">
 			<div class = "inputContainer flex mediumPadding">
 				<input class = "fullWidth mediumFont" placeholder = "Search..." oninput = ${ event => {
 					pageData.setWords (constants.vocabulary.filter (word =>
@@ -33,7 +33,7 @@ pages.dictionary = {
 				} } />
 			</div>
 			
-			<div class = "flexTop flexWrap fullWidth">
+			<div class = "flexTop flexWrap">
 				${ Object.keys (pageData.words).map (letter =>
 					SectionGroup (
 						Section (letter, html

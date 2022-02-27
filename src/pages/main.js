@@ -4,12 +4,10 @@
 
 pages.main = {
 	content: () => html
-		`<div class = "pageContainer flexColumnTop fullWidth">
+		`<div class = "pageContainer flexColumnTop">
 			${ SectionGroup ([
 				Section ("Bill Mounce", [
 					SectionLink ("BillMounce.com", null, "https://billmounce.com"),
-					
-					SectionLink ("Dictionary", null, "https://www.billmounce.com/greek-dictionary"),
 					
 					SectionLink ("Workbook Answer Key", null, "http://doxa.billmounce.com.s3.amazonaws.com/bbg4_answer_key.pdf")
 				]),

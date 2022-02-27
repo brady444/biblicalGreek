@@ -4,7 +4,7 @@
 
 pages.about = {
 	content: () => html
-		`<div class = "pageContainer flexColumn fullWidth mediumGap mediumPadding">
+		`<div class = "pageContainer flexColumn mediumGap mediumPadding">
 			<p class = "smallFont">Some data is taken from BillMounce.com, Basics of Biblical Greek, and GNTReader.com.</p>
 			
 			<p class = "smallFont">Some data is modified.</p>

@@ -8,7 +8,7 @@ pages.parser = {
 	},
 	
 	content: () => html
-		`<div class = "pageContainer flexColumnTop fullWidth mediumGap mediumPadding">
+		`<div class = "pageContainer flexColumnTop mediumGap mediumPadding">
 			<div class = "inputContainer flex">
 				<input class = "fullWidth mediumFont" placeholder = "Enter Greek..." oninput = ${ event => {
 					pageData.words = [];
@@ -49,7 +49,7 @@ pages.parser = {
 				} } />
 			</div>
 			
-			<div class = "flexTop flexWrap fullWidth mediumGap">
+			<div class = "flexTop flexWrap mediumGap">
 				${ pageData.words.map (word => Word (word.word, word.forms)) }
 			</div>
 		</div>`

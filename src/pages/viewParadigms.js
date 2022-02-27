@@ -23,7 +23,7 @@ pages.paradigm = {
 	},
 	
 	content: () => html
-		`<div class = "pageContainer flexColumnTop fullWidth mediumGap mediumPadding">
+		`<div class = "pageContainer flexColumnTop mediumGap mediumPadding">
 			<select class = "mediumFont" onchange = ${ event => {
 				pageData.setParadigm (event.target.value);
 				
