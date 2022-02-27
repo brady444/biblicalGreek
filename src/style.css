@@ -205,7 +205,7 @@ input, select {
 }
 
 .wordContainer {
-	max-width: 20%;
+	max-width: 300px;
 }
 
 .wordContainer p {
