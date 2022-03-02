@@ -34,7 +34,9 @@ pages.word = {
 				}
 				
 				<div class = "flexColumnLeft extraSmallGap">
-					${ pageData.word.shortGloss.split ("\n").map (line => html`<p class = "smallFont">${ line }</p>`) }
+					${ pageData.word.shortGloss.split ("\n").map (line => html
+						`<p class = "smallFont">${ line }</p>`
+					) }
 				</div>
 				
 				${ pageData.word.strongsNumber || pageData.word.gkNumber ? html
