@@ -55,42 +55,55 @@ const Question = (text, underlined) => html
 	</div>`;
 
 const Word = (word, forms) => html
-	`<div class = "vocabularyWord flexColumn mediumGap mediumPadding">
-		<p class = "largeFont">${ word.lexicalForm }</p>
-		
-		${ word.vocabularyForm ? html
-			`<p class = "smallFont">${ word.vocabularyForm }</p>` :
-			null
-		}
-		
-		${ word.type ? html
-			`<p class = "smallFont">${ word.type }</p>` :
-			null
-		}
-		
-		${ word.strongsNumber || word.gkNumber ? html
-			`<div class = "flexColumn extraSmallGap">
-				${ word.strongsNumber ? html
-					`<p class = "smallFont">Strong's Number: ${ word.strongsNumber }</p>` :
-					null
-				}
-				
-				${ word.gkNumber ? html
-					`<p class = "smallFont">GK Number: ${ word.gkNumber }</p>` :
-					null
-				}
-			</div>` :
-			null
-		}
-		
-		<p class = "smallFont">Frequency: ${ word.frequency.toLocaleString () }</p>
-		
-		<div class = "flexColumn extraSmallGap">
-			${ word.shortGloss.split ("\n").map (line => html`<p class = "smallFont">${ line }</p>`) }
+	`<div class = "vocabularyWord flexColumnLeft mediumGap mediumPadding">
+		<div class = "wordContainer flexColumnLeft mediumGap">
+			<p class = "largeFont">${ word.lexicalForm }</p>
+			
+			${ word.vocabularyForm ? html
+				`<p class = "smallFont">${ word.vocabularyForm }</p>` :
+				null
+			}
+			
+			${ word.transliteration || word.simplifiedTransliteration ? html
+				`<p class = "smallFont">${ word.transliteration ?? word.simplifiedTransliteration }</p>` :
+				null
+			}
+			
+			${ word.type ? html
+				`<p class = "smallFont">${ word.type }</p>` :
+				null
+			}
+			
+			<div class = "flexColumnLeft extraSmallGap">
+				${ word.shortGloss.split ("\n").map (line => html
+					`<p class = "smallFont">${ line }</p>`
+				) }
+			</div>
+			
+			${ word.strongsNumber || word.gkNumber ? html
+				`<div class = "flexColumnLeft extraSmallGap">
+					${ word.strongsNumber ? html
+						`<p class = "smallFont">Strong's Number: ${ word.strongsNumber }</p>` :
+						null
+					}
+					
+					${ word.gkNumber ? html
+						`<p class = "smallFont">GK Number: ${ word.gkNumber }</p>` :
+						null
+					}
+				</div>` :
+				null
+			}
+			
+			<p class = "smallFont">Frequency: ${ word.frequency.toLocaleString () }</p>
+			
+			<p class = "smallFont">Chapter: ${ word.chapter }</p>
 		</div>
 		
 		${ (forms || word.forms).length > 0 ? html
-			`${ (forms || word.forms).map (form => html
+			`<p class = "smallFont">Forms:</p>
+			
+			${ (forms || word.forms).map (form => html
 				`<div class = "fullWidth flexColumnLeft extraSmallGap">
 					<p class = "smallFont">${ form.text }</p>
 					
