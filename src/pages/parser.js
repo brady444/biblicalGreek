@@ -49,7 +49,7 @@ pages.parser = {
 				} } />
 			</div>
 			
-			<div class = "flexTop flexWrap mediumGap">
+			<div class = "fullWidth flexTop flexWrap mediumGap">
 				${ pageData.words.map (word => Word (word.word, word.forms)) }
 			</div>
 		</div>`

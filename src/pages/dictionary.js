@@ -33,7 +33,7 @@ pages.dictionary = {
 				} } />
 			</div>
 			
-			<div class = "flexTop flexWrap">
+			<div class = "fullWidth flexTop flexWrap">
 				${ Object.keys (pageData.words).map (letter =>
 					SectionGroup (
 						Section (letter, html
