@@ -226,7 +226,7 @@ input, select {
 .paradigmElementText {
 	background-color: #444;
 	cursor: pointer;
-	font-size: 4vmin;
+	font-size: 3.5vmin;
 	height: 8vmin;
 	transition: .25s background-color;
 	width: 8vmin;

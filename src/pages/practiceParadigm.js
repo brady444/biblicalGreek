@@ -56,10 +56,9 @@ pages.practiceParadigm = {
 					
 					pageData.remainingElements.splice (pageData.remainingElements.indexOf (element), 1);
 					
+					//if paradigm is complete
 					if (pageData.remainingElements.length < 1) {
-						pages [currentPage].setup ({
-							paradigmName: pageData.paradigm.name
-						});
+						pageData.setParadigm (pageData.paradigmName);
 					}
 					
 					else {

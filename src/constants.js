@@ -5,8 +5,6 @@ const constants = {
 	
 	paradigms: {
 		"Case Endings": {
-			name: "Case Endings",
-			
 			columnLabels: [
 				"Masculine (2nd)",
 				"Feminine (1st)",
@@ -96,9 +94,97 @@ const constants = {
 			]
 		},
 		
-		"The Article": {
-			name: "The Article",
+		"Stem Endings + Case Endings": {
+			columnLabels: [
+				"Masculine (2nd)",
+				"Feminine (1st)",
+				"Neuter (2nd)"
+			],
 			
+			rows: [
+				{
+					label: "Nominative Singular",
+					
+					elements: [
+						{ text: "ος" },
+						{ text: "α η" },
+						{ text: "ον" }
+					]
+				},
+				
+				{
+					label: "Genitive Singular",
+					
+					elements: [
+						{ text: "ου" },
+						{ text: "ας ης" },
+						{ text: "ου" }
+					]
+				},
+				
+				{
+					label: "Dative Singular",
+					
+					elements: [
+						{ text: "ῳ" },
+						{ text: "ᾳ ῃ" },
+						{ text: "ῳ" }
+					]
+				},
+				
+				{
+					label: "Accusative Singular",
+					
+					elements: [
+						{ text: "ον" },
+						{ text: "αν ην" },
+						{ text: "ον" }
+					]
+				},
+				
+				{
+					label: "Nominative Plural",
+					
+					elements: [
+						{ text: "οι" },
+						{ text: "αι" },
+						{ text: "α" }
+					]
+				},
+				
+				{
+					label: "Genitive Plural",
+					
+					elements: [
+						{ text: "ων", underlined: true },
+						{ text: "ων", underlined: true },
+						{ text: "ων", underlined: true }
+					]
+				},
+				
+				{
+					label: "Dative Plural",
+					
+					elements: [
+						{ text: "οις" },
+						{ text: "αις" },
+						{ text: "οις" }
+					]
+				},
+				
+				{
+					label: "Accusative Plural",
+					
+					elements: [
+						{ text: "ους" },
+						{ text: "ας" },
+						{ text: "α" }
+					]
+				}
+			]
+		},
+		
+		"The Article": {
 			columnLabels: [
 				"Masculine (2nd)",
 				"Feminine (1st)",
@@ -189,8 +275,6 @@ const constants = {
 		},
 		
 		"The Third Person Pronoun": {
-			name: "The Third Person Pronoun",
-			
 			columnLabels: [
 				"Masculine (2nd)",
 				"Feminine (1st)",
