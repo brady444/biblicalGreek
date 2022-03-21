@@ -19,7 +19,6 @@ html {
 body {
 	margin: 0;
 	background-color: #222;
-	overflow-y: overlay;
 }
 
 p, a {
@@ -188,6 +187,7 @@ input, select {
 .pageContainer {
 	height: calc(100vh - 46px);
 	box-sizing: border-box;
+	overflow-y: overlay;
 }
 
 .inputContainer {
