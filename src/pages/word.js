@@ -28,13 +28,21 @@ pages.word = {
 					null
 				}
 				
-				${ pageData.word.type ? html
-					`<p class = "smallFont">${ pageData.word.type }</p>` :
+				${ pageData.word.partOfSpeech ? html
+					`<p class = "smallFont">${ pageData.word.partOfSpeech }</p>` :
 					null
 				}
 				
 				<div class = "flexColumnLeft extraSmallGap">
-					${ pageData.word.shortGloss.split ("\n").map (line => html
+					${ pageData.word.shortGloss?.split ("\n").map (line => html
+						`<p class = "smallFont">${ line }</p>`
+					) }
+					
+					${ pageData.word.gloss?.split ("\n").map (line => html
+						`<p class = "smallFont">${ line }</p>`
+					) }
+					
+					${ pageData.word.definition?.split ("\n").map (line => html
 						`<p class = "smallFont">${ line }</p>`
 					) }
 				</div>

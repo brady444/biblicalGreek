@@ -87,11 +87,15 @@ const watch = callback => {
 		online: false
 	});
 	
+	const series = gulp.series (minifyhtml, minifycss, minifyjs, () => browserSync.reload ());
+	
 	gulp.watch ("src", callback => {
-		gulp.series (minifyhtml, minifycss, minifyjs, () => browserSync.reload ()) ();
+		series ();
 		
 		callback ();
 	});
+	
+	series ();
 	
 	callback ();
 };
