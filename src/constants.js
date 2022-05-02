@@ -12,16 +12,16 @@ const constants = {
 	paradigms: {
 		"Case Endings": {
 			columnLabels: [
-				"Masculine (2nd)",
-				"Feminine (1st)",
-				"Neuter (2nd)",
-				"Masculine/Feminine (3rd)",
-				"Neuter (3rd)"
+				"Masculine\n(2nd)",
+				"Feminine\n(1st)",
+				"Neuter\n(2nd)",
+				"Masculine/\nFeminine\n(3rd)",
+				"Neuter\n(3rd)"
 			],
 			
 			rows: [
 				{
-					label: "Nominative Singular",
+					label: "Nominative\nSingular",
 					
 					elements: [
 						{ text: "ς" },
@@ -33,7 +33,7 @@ const constants = {
 				},
 				
 				{
-					label: "Genitive Singular",
+					label: "Genitive\nSingular",
 					
 					elements: [
 						{ text: "υ" },
@@ -45,7 +45,7 @@ const constants = {
 				},
 				
 				{
-					label: "Dative Singular",
+					label: "Dative\nSingular",
 					
 					elements: [
 						{ text: "ͺ" },
@@ -57,7 +57,7 @@ const constants = {
 				},
 				
 				{
-					label: "Accusative Singular",
+					label: "Accusative\nSingular",
 					
 					elements: [
 						{ text: "ν" },
@@ -69,7 +69,7 @@ const constants = {
 				},
 				
 				{
-					label: "Nominative Plural",
+					label: "Nominative\nPlural",
 					
 					elements: [
 						{ text: "ι" },
@@ -81,7 +81,7 @@ const constants = {
 				},
 				
 				{
-					label: "Genitive Plural",
+					label: "Genitive\nPlural",
 					
 					elements: [
 						{ text: "ων", underlined: true },
@@ -93,7 +93,7 @@ const constants = {
 				},
 				
 				{
-					label: "Dative Plural",
+					label: "Dative\nPlural",
 					
 					elements: [
 						{ text: "ις" },
@@ -105,7 +105,7 @@ const constants = {
 				},
 				
 				{
-					label: "Accusative Plural",
+					label: "Accusative\nPlural",
 					
 					elements: [
 						{ text: "υς" },
@@ -164,14 +164,14 @@ const constants = {
 		
 		ὁ: {
 			columnLabels: [
-				"Masculine (2nd)",
-				"Feminine (1st)",
-				"Neuter (2nd)"
+				"Masculine\n(2nd)",
+				"Feminine\n(1st)",
+				"Neuter\n(2nd)"
 			],
 			
 			rows: [
 				{
-					label: "Nominative Singular",
+					label: "Nominative\nSingular",
 					
 					elements: [
 						{ text: "ὁ" },
@@ -181,7 +181,7 @@ const constants = {
 				},
 				
 				{
-					label: "Genitive Singular",
+					label: "Genitive\nSingular",
 					
 					elements: [
 						{ text: "τοῦ" },
@@ -191,7 +191,7 @@ const constants = {
 				},
 				
 				{
-					label: "Dative Singular",
+					label: "Dative\nSingular",
 					
 					elements: [
 						{ text: "τῷ" },
@@ -201,7 +201,7 @@ const constants = {
 				},
 				
 				{
-					label: "Accusative Singular",
+					label: "Accusative\nSingular",
 					
 					elements: [
 						{ text: "τόν" },
@@ -211,7 +211,7 @@ const constants = {
 				},
 				
 				{
-					label: "Nominative Plural",
+					label: "Nominative\nPlural",
 					
 					elements: [
 						{ text: "οἱ" },
@@ -221,7 +221,7 @@ const constants = {
 				},
 				
 				{
-					label: "Genitive Plural",
+					label: "Genitive\nPlural",
 					
 					elements: [
 						{ text: "τῶν" },
@@ -231,7 +231,7 @@ const constants = {
 				},
 				
 				{
-					label: "Dative Plural",
+					label: "Dative\nPlural",
 					
 					elements: [
 						{ text: "τοῖς" },
@@ -241,7 +241,7 @@ const constants = {
 				},
 				
 				{
-					label: "Accusative Plural",
+					label: "Accusative\nPlural",
 					
 					elements: [
 						{ text: "τούς" },
@@ -254,14 +254,14 @@ const constants = {
 		
 		αὐτός: {
 			columnLabels: [
-				"Masculine (2nd)",
-				"Feminine (1st)",
-				"Neuter (2nd)"
+				"Masculine\n(2nd)",
+				"Feminine\n(1st)",
+				"Neuter\n(2nd)"
 			],
 			
 			rows: [
 				{
-					label: "Nominative Singular",
+					label: "Nominative\nSingular",
 					
 					elements: [
 						{ text: "αὐτός" },
@@ -271,7 +271,7 @@ const constants = {
 				},
 				
 				{
-					label: "Genitive Singular",
+					label: "Genitive\nSingular",
 					
 					elements: [
 						{ text: "αὐτοῦ" },
@@ -281,7 +281,7 @@ const constants = {
 				},
 				
 				{
-					label: "Dative Singular",
+					label: "Dative\nSingular",
 					
 					elements: [
 						{ text: "αὐτῷ" },
@@ -291,7 +291,7 @@ const constants = {
 				},
 				
 				{
-					label: "Accusative Singular",
+					label: "Accusative\nSingular",
 					
 					elements: [
 						{ text: "αὐτόν" },
@@ -301,7 +301,7 @@ const constants = {
 				},
 				
 				{
-					label: "Nominative Plural",
+					label: "Nominative\nPlural",
 					
 					elements: [
 						{ text: "αὐτοί" },
@@ -311,7 +311,7 @@ const constants = {
 				},
 				
 				{
-					label: "Genitive Plural",
+					label: "Genitive\nPlural",
 					
 					elements: [
 						{ text: "αὐτῶν" },
@@ -321,7 +321,7 @@ const constants = {
 				},
 				
 				{
-					label: "Dative Plural",
+					label: "Dative\nPlural",
 					
 					elements: [
 						{ text: "αὐτοῖς" },
@@ -331,7 +331,7 @@ const constants = {
 				},
 				
 				{
-					label: "Accusative Plural",
+					label: "Accusative\nPlural",
 					
 					elements: [
 						{ text: "αὐτούς" },
@@ -349,7 +349,7 @@ const constants = {
 			
 			rows: [
 				{
-					label: "1st Person Singular",
+					label: "1st Person\nSingular",
 					
 					elements: [
 						{ text: "εἰμί" },
@@ -361,7 +361,7 @@ const constants = {
 				},
 				
 				{
-					label: "2nd Person Singular",
+					label: "2nd Person\nSingular",
 					
 					elements: [
 						{ text: "εἶ" },
@@ -373,7 +373,7 @@ const constants = {
 				},
 				
 				{
-					label: "3rd Person Singular",
+					label: "3rd Person\nSingular",
 					
 					elements: [
 						{ text: "ἐστίν" },
@@ -385,7 +385,7 @@ const constants = {
 				},
 				
 				{
-					label: "1st Person Plural",
+					label: "1st Person\nPlural",
 					
 					elements: [
 						{ text: "ἐσμέν" },
@@ -397,7 +397,7 @@ const constants = {
 				},
 				
 				{
-					label: "2nd Person Plural",
+					label: "2nd Person\nPlural",
 					
 					elements: [
 						{ text: "ἐστέ" },
@@ -409,7 +409,7 @@ const constants = {
 				},
 				
 				{
-					label: "3rd Person Plural",
+					label: "3rd Person\nPlural",
 					
 					elements: [
 						{ text: "εἰσίν" },

@@ -17,8 +17,14 @@ const Section = (name, content) => html
 const SectionLink = (text, path, href) => html
 	`<a class = "link smallFont gray" href = ${ path ? "#/" + path : href }>${ text }</a>`;
 
-const ParadigmLabel = text => html
-	`<p class = "paradigmLabel flex flexExpand mediumFont">${ text }</p>`;
+const ParadigmLabel = text => {
+	return html
+		`<div class = "paradigmLabel flexColumn flexExpand">
+			${ text.split ("\n").map (line => html
+				`<p class = "mediumFont">${ line }</p>`
+			) }
+		</div>`;
+};
 
 const ParadigmElement = (element, onclick) => html
 	`<div class = "flex flexExpand">
@@ -35,7 +41,7 @@ const Paradigm = (columnLabels, rows, elementClickCallback) => html
 	`<div id = "paradigm" class = "flexColumn smallGap mediumPadding">
 		${ columnLabels.length > 0 ? html
 			`<div class = "flex fullWidth smallGap">
-				${ ParadigmLabel () }
+				${ ParadigmLabel ("") }
 				
 				${ columnLabels.map (label => ParadigmLabel (label)) }
 			</div>` : null }
