@@ -46,7 +46,7 @@ pages.practiceParadigm = {
 				}
 				
 				//if answer is correct
-				if (pageData.currentElement.text === element.text) {
+				if (pageData.currentElement.text === element.text && pageData.currentElement.underlined === element.underlined) {
 					element.answered = true;
 					
 					//set incorrect to false for all elements
