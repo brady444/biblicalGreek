@@ -27,7 +27,6 @@ p, a {
 	color: white;
 	text-align: center;
 	text-decoration: none;
-	overflow-wrap: anywhere;
 }
 
 a {
@@ -128,6 +127,10 @@ input, select {
 	gap: 20px;
 }
 
+.extraLargeGap {
+	gap: 50px;
+}
+
 .mediumMargin {
 	margin: 15px;
 }
@@ -148,10 +151,6 @@ input, select {
 	padding: 20px;
 }
 
-.extraLargeGap {
-	gap: 50px;
-}
-
 .extraSmallFont {
 	font-size: 15px;
 }
@@ -161,15 +160,19 @@ input, select {
 }
 
 .mediumFont {
-	font-size: 23px;
+	font-size: 21px;
 }
 
 .largeFont {
-	font-size: 30px;
+	font-size: 24px;
 }
 
 .extraLargeFont {
-	font-size: 40px;
+	font-size: 27px;
+}
+
+.extraExtraLargeFont {
+	font-size: 30px;
 }
 
 .underlined {
@@ -224,12 +227,11 @@ input, select {
 }
 
 .paradigmElementText {
+	width: 8vmin;
+	height: 8vmin;
 	background-color: #444;
 	cursor: pointer;
-	font-size: 3.5vmin;
-	height: 8vmin;
 	transition: .25s background-color;
-	width: 8vmin;
 	overflow-wrap: unset;
 }
 

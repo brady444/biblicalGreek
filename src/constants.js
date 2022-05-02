@@ -14,7 +14,9 @@ const constants = {
 			columnLabels: [
 				"Masculine (2nd)",
 				"Feminine (1st)",
-				"Neuter (2nd)"
+				"Neuter (2nd)",
+				"Masculine/Feminine (3rd)",
+				"Neuter (3rd)"
 			],
 			
 			rows: [
@@ -24,7 +26,9 @@ const constants = {
 					elements: [
 						{ text: "ς" },
 						{ text: "–" },
-						{ text: "ν" }
+						{ text: "ν" },
+						{ text: "ς" },
+						{ text: "–" }
 					]
 				},
 				
@@ -34,7 +38,9 @@ const constants = {
 					elements: [
 						{ text: "υ" },
 						{ text: "ς" },
-						{ text: "υ" }
+						{ text: "υ" },
+						{ text: "ος" },
+						{ text: "ος" }
 					]
 				},
 				

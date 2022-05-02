@@ -22,7 +22,7 @@ const ParadigmLabel = text => html
 
 const ParadigmElement = (element, onclick) => html
 	`<div class = "flex flexExpand">
-		<p class = ${ "paradigmElementText flex" + (element.answered ?
+		<p class = ${ "paradigmElementText flex extraExtraLargeFont" + (element.answered ?
 			element.underlined ?
 				" answered underlined" :
 				" answered" :
