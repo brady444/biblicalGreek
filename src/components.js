@@ -17,14 +17,11 @@ const Section = (name, content) => html
 const SectionLink = (text, path, href) => html
 	`<a class = "link smallFont gray" href = ${ path ? "#/" + path : href }>${ text }</a>`;
 
-const ParadigmLabel = text => {
-	return html
-		`<div class = "paradigmLabel flexColumn flexExpand">
-			${ text.split ("\n").map (line => html
-				`<p class = "mediumFont">${ line }</p>`
-			) }
-		</div>`;
-};
+const ParadigmLabel = text => html`<div class = "paradigmLabel flexColumn flexExpand">
+	${ text.split ("\n").map (line => html
+		`<p class = "mediumFont">${ line }</p>`
+	) }
+</div>`;
 
 const ParadigmElement = (element, onclick) => html
 	`<div class = "flex flexExpand">
