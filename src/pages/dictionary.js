@@ -8,7 +8,7 @@ pages.dictionary = {
 			pageData.words = {};
 			
 			for (let i = 0; i < words.length; i++) {
-				const letter = utilities.simplifyGreek (words [i].lexicalForm.charAt (0)).toUpperCase ();
+				const letter = utilities.simplifyGreek (words [i].lexicalForm).charAt (0).toUpperCase ();
 				
 				if (pageData.words [letter] === undefined) {
 					pageData.words [letter] = [];
