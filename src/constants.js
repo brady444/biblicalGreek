@@ -50,7 +50,9 @@ const constants = {
 					elements: [
 						{ text: "ͺ" },
 						{ text: "ͺ" },
-						{ text: "ͺ" }
+						{ text: "ͺ" },
+						{ text: "ι" },
+						{ text: "ι" }
 					]
 				},
 				
@@ -60,7 +62,9 @@ const constants = {
 					elements: [
 						{ text: "ν" },
 						{ text: "ν" },
-						{ text: "ν" }
+						{ text: "ν" },
+						{ text: "α / ν" },
+						{ text: "–" }
 					]
 				},
 				
@@ -70,7 +74,9 @@ const constants = {
 					elements: [
 						{ text: "ι" },
 						{ text: "ι" },
-						{ text: "α", underlined: true }
+						{ text: "α", underlined: true },
+						{ text: "ες" },
+						{ text: "α" }
 					]
 				},
 				
@@ -80,7 +86,9 @@ const constants = {
 					elements: [
 						{ text: "ων", underlined: true },
 						{ text: "ων", underlined: true },
-						{ text: "ων", underlined: true }
+						{ text: "ων", underlined: true },
+						{ text: "ων" },
+						{ text: "ων" }
 					]
 				},
 				
@@ -90,7 +98,9 @@ const constants = {
 					elements: [
 						{ text: "ις" },
 						{ text: "ις" },
-						{ text: "ις" }
+						{ text: "ις" },
+						{ text: "σι (ν)" },
+						{ text: "σι (ν)" }
 					]
 				},
 				
@@ -100,7 +110,9 @@ const constants = {
 					elements: [
 						{ text: "υς" },
 						{ text: "ς" },
-						{ text: "α", underlined: true }
+						{ text: "α", underlined: true },
+						{ text: "ας" },
+						{ text: "α" }
 					]
 				}
 			]

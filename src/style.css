@@ -23,10 +23,10 @@ body {
 
 p, a {
 	margin: 0;
-	font-family: Times New Roman;
 	color: white;
 	text-align: center;
 	text-decoration: none;
+	font-family: Times New Roman;
 }
 
 a {
@@ -34,11 +34,12 @@ a {
 }
 
 input, select {
+	padding: 10px;
 	outline: none;
 	border: none;
-	padding: 10px;
 	background: #2C2C2C;
 	color: white;
+	font-family: Times New Roman;
 	box-sizing: border-box;
 }
 
@@ -227,8 +228,8 @@ input, select {
 }
 
 .paradigmElementText {
-	width: 8vmin;
-	height: 8vmin;
+	width: 7.5vmin;
+	height: 7.5vmin;
 	background-color: #444;
 	cursor: pointer;
 	transition: .25s background-color;

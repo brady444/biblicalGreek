@@ -29,7 +29,7 @@ pages.paradigm = {
 				
 				update ();
 			} }>
-				${ Object.keys (constants.paradigms).map (paradigm => html`<option class = "smallFont" ?selected = ${ paradigm === pageData.paradigmName }>${ paradigm }</option>`) }
+				${ Object.keys (constants.paradigms).map (paradigm => html`<option ?selected = ${ paradigm === pageData.paradigmName }>${ paradigm }</option>`) }
 			</select>
 			
 			${ Paradigm (pageData.paradigm.columnLabels, pageData.paradigm.rows) }
