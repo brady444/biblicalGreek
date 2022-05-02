@@ -18,7 +18,7 @@ const SectionLink = (text, path, href) => html
 	`<a class = "link smallFont gray" href = ${ path ? "#/" + path : href }>${ text }</a>`;
 
 const ParadigmLabel = text => html`<div class = "paradigmLabel flexColumn flexExpand">
-	${ text.split ("\n").map (line => html
+	${ text?.split ("\n").map (line => html
 		`<p class = "mediumFont">${ line }</p>`
 	) }
 </div>`;
@@ -38,7 +38,7 @@ const Paradigm = (columnLabels, rows, elementClickCallback) => html
 	`<div id = "paradigm" class = "flexColumn smallGap mediumPadding">
 		${ columnLabels.length > 0 ? html
 			`<div class = "flex fullWidth smallGap">
-				${ ParadigmLabel ("") }
+				${ ParadigmLabel () }
 				
 				${ columnLabels.map (label => ParadigmLabel (label)) }
 			</div>` : null }

@@ -223,10 +223,6 @@ input, select {
 	box-sizing: border-box;
 }
 
-.paradigmLabel:first-child {
-	justify-content: flex-end;
-}
-
 .paradigmElementText {
 	width: 7.5vmin;
 	height: 7.5vmin;
