@@ -118,97 +118,51 @@ const constants = {
 			]
 		},
 		
-		"Stem Endings + Case Endings": {
+		"Square of Stops": {
 			columnLabels: [
-				"Masculine (2nd)",
-				"Feminine (1st)",
-				"Neuter (2nd)"
+				"Unvoiced",
+				"Voiced",
+				"Aspirate",
+				"Stop + σ"
 			],
 			
 			rows: [
 				{
-					label: "Nominative Singular",
+					label: "Labial",
 					
 					elements: [
-						{ text: "ος" },
-						{ text: "α η" },
-						{ text: "ον" }
+						{ text: "π" },
+						{ text: "β" },
+						{ text: "φ" },
+						{ text: "ψ" }
 					]
 				},
 				
 				{
-					label: "Genitive Singular",
+					label: "Velar",
 					
 					elements: [
-						{ text: "ου" },
-						{ text: "ας ης" },
-						{ text: "ου" }
+						{ text: "κ" },
+						{ text: "γ" },
+						{ text: "χ" },
+						{ text: "ξ" }
 					]
 				},
 				
 				{
-					label: "Dative Singular",
+					label: "Dental",
 					
 					elements: [
-						{ text: "ῳ" },
-						{ text: "ᾳ ῃ" },
-						{ text: "ῳ" }
-					]
-				},
-				
-				{
-					label: "Accusative Singular",
-					
-					elements: [
-						{ text: "ον" },
-						{ text: "αν ην" },
-						{ text: "ον" }
-					]
-				},
-				
-				{
-					label: "Nominative Plural",
-					
-					elements: [
-						{ text: "οι" },
-						{ text: "αι" },
-						{ text: "α" }
-					]
-				},
-				
-				{
-					label: "Genitive Plural",
-					
-					elements: [
-						{ text: "ων", underlined: true },
-						{ text: "ων", underlined: true },
-						{ text: "ων", underlined: true }
-					]
-				},
-				
-				{
-					label: "Dative Plural",
-					
-					elements: [
-						{ text: "οις" },
-						{ text: "αις" },
-						{ text: "οις" }
-					]
-				},
-				
-				{
-					label: "Accusative Plural",
-					
-					elements: [
-						{ text: "ους" },
-						{ text: "ας" },
-						{ text: "α" }
+						{ text: "τ" },
+						{ text: "δ" },
+						{ text: "θ" },
+						{ text: "σ" }
 					]
 				}
 			]
 		},
 		
-		"The Article": {
+		ὁ: {
 			columnLabels: [
 				"Masculine (2nd)",
 				"Feminine (1st)",
@@ -298,7 +252,7 @@ const constants = {
 			]
 		},
 		
-		"The Third Person Pronoun": {
+		αὐτός: {
 			columnLabels: [
 				"Masculine (2nd)",
 				"Feminine (1st)",

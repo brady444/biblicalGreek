@@ -16,7 +16,7 @@ pages.word = {
 	content: () => html
 		`<div class = "pageContainer flexTop extraLargeGap mediumPadding">
 			<div class = "wordContainer flexColumnLeft mediumGap">
-				<p class = "largeFont">${ pageData.word.lexicalForm }</p>
+				<p class = "extraExtraLargeFont">${ pageData.word.lexicalForm }</p>
 				
 				${ pageData.word.vocabularyForm ? html
 					`<p class = "smallFont">${ pageData.word.vocabularyForm }</p>` :

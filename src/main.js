@@ -5,8 +5,8 @@
 
 const update = () =>
 	render (document.body, html
-		`<div id = "header" class = "flex mediumFont">
-			<a class = "smallPadding" href = "#">Biblical Greek</a>
+		`<div id = "header" class = "flex">
+			<a class = "smallPadding mediumFont" href = "#">Biblical Greek</a>
 		</div>
 		
 		${ pages [currentPage].content () }`
