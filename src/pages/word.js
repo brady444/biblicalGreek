@@ -14,7 +14,7 @@ pages.word = {
 	},
 	
 	content: () => html
-		`<div class = "pageContainer flexTop extraLargeGap mediumPadding">
+		`<div class = "pageContainer flexTop extraExtraLargeGap mediumPadding">
 			<div class = "wordContainer flexColumnLeft mediumGap">
 				<p class = "extraExtraLargeFont">${ pageData.word.lexicalForm }</p>
 				
@@ -65,16 +65,33 @@ pages.word = {
 				<p class = "smallFont">Frequency: ${ pageData.word.frequency.toLocaleString () }</p>
 				
 				<p class = "smallFont">Chapter: ${ pageData.word.chapter }</p>
+				
+				${ pageData.word.vocabularyUrlWord || pageData.word.dictionaryUrlWord ? html
+					`<div class = "flexColumnLeft extraSmallGap">
+						<p class = "smallFont">BillMounce.com</p>
+						
+						${ pageData.word.vocabularyUrlWord ? html
+							`<a class = "link smallFont gray" href = ${ "https://www.billmounce.com/greekvocabulary/" + pageData.word.vocabularyUrlWord }>Vocabulary</p>` :
+							null
+						}
+						
+						${ pageData.word.dictionaryUrlWord ? html
+							`<a class = "link smallFont gray" href = ${ "https://www.billmounce.com/greek-dictionary/" + pageData.word.dictionaryUrlWord }>Dictionary</p>` :
+							null
+						}
+					</div>` :
+					null
+				}
 			</div>
 			
 			${ pageData.word.forms.length > 0 ? html
-				`<div class = "wordContainer flexColumnLeft largeGap">
+				`<div class = "flexColumnLeft largeGap">
 					${ pageData.word.forms.map (form => html
 						`<div class = "flexColumnLeft extraSmallGap">
 							<p class = "smallFont">${ form.text }</p>
 							
 							${ form.uses.map (use => html
-								`<p class = "smallFont gray">${ use.case } ${ use.number } ${ use.gender } (${ use.frequency.toLocaleString () })</p>`
+								`<p class = "smallFont gray">${ use.case } ${ use.tense } ${ use.voice } ${ use.mood } ${ use.person } ${ use.number } ${ use.gender } ${ use.declension } ${ use.superiority } ${ use.partOfSpeech } (${ use.frequency.toLocaleString () })</p>`
 							) }
 						</div>`
 					) }

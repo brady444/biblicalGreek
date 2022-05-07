@@ -4,7 +4,7 @@
 
 const SectionGroup = content => html
 	`<div class = "sectionGroup flexColumn fullWidth largePadding">
-		<div class = "flexTop flexWrap extraLargeGap">${ content }</div>
+		<div class = "flexTop flexWrap extraExtraLargeGap">${ content }</div>
 	</div>`;
 
 const Section = (name, content) => html

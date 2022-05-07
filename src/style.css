@@ -129,6 +129,10 @@ input, select {
 }
 
 .extraLargeGap {
+	gap: 25px;
+}
+
+.extraExtraLargeGap {
 	gap: 50px;
 }
 

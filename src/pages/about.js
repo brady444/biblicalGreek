@@ -4,7 +4,7 @@
 
 pages.about = {
 	content: () => html
-		`<div class = "pageContainer flexColumnTop extraLargeGap mediumPadding">
+		`<div class = "pageContainer flexColumnTop extraExtraLargeGap mediumPadding">
 			<div class = "flexColumnTop smallGap">
 				<p class = "mediumFont">About this website:</p>
 				
