@@ -41,7 +41,9 @@ const Paradigm = (columnLabels, rows, elementClickCallback) => html
 				${ ParadigmLabel () }
 				
 				${ columnLabels.map (label => ParadigmLabel (label)) }
-			</div>` : null }
+			</div>` :
+			null
+		}
 		
 		${ rows.map (row => html
 			`<div class = "flex fullWidth smallGap">
