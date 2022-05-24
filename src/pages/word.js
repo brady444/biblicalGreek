@@ -66,6 +66,15 @@ pages.word = {
 				
 				<p class = "smallFont">Chapter: ${ pageData.word.chapter }</p>
 				
+				${ pageData.word.notes ? html
+					`<div class = "flexColumnLeft extraSmallGap">
+						${ pageData.word.notes?.split ("\n").map (line => html
+							`<p class = "smallFont">${ line }</p>`
+						) }
+					</div>` :
+					null
+				}
+				
 				${ pageData.word.vocabularyUrlWord || pageData.word.dictionaryUrlWord ? html
 					`<div class = "flexColumnLeft extraSmallGap">
 						<p class = "smallFont">BillMounce.com</p>
@@ -82,6 +91,8 @@ pages.word = {
 					</div>` :
 					null
 				}
+				
+				${ SectionLink ("About", "about") }
 			</div>
 			
 			${ pageData.word.forms.length > 0 ? html

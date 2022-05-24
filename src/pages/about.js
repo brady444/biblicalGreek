@@ -8,9 +8,9 @@ pages.about = {
 			<div class = "flexColumnTop smallGap">
 				<p class = "mediumFont">About this website:</p>
 				
-				<p class = "smallFont">Data is/may be taken from BillMounce.com, Basics of Biblical Greek, and GNTReader.com.</p>
+				<p class = "smallFont">Data may be taken from BillMounce.com, Basics of Biblical Greek, and GNTReader.com.</p>
 				
-				<p class = "smallFont">Some data is modified.</p>
+				<p class = "smallFont">Data may be modified.</p>
 				
 				<p class = "smallFont">Data may be missing, old, or inaccurate.</p>
 				
