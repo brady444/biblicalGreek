@@ -15,6 +15,7 @@ const utilities = {
 			.replaceAll ("⸂", "")
 			.replaceAll ("⸃", "")
 			.replaceAll ("\"", "")
+			.replaceAll (",", "")
 			.toLowerCase (),
 	
 	englishToGreek: text =>

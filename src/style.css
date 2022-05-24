@@ -247,6 +247,10 @@ input, select {
 	cursor: unset !important;
 }
 
+.parseResults > .wordContainer {
+	background: #2C2C2C;
+}
+
 #header {
 	background-color: #111;
 }
