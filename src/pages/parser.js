@@ -81,7 +81,7 @@ pages.parser = {
 							`<div class = "flexColumnLeft largeGap">
 								${ word.forms.map (form => html
 									`<div class = "flexColumnLeft extraSmallGap">
-										<p class = "smallFont">${ form.text }</p>
+										<p class = "largeFont">${ form.text }</p>
 										
 										${ form.uses.map (use => html
 											`<p class = "smallFont gray">${ use.case } ${ use.tense } ${ use.voice } ${ use.mood } ${ use.person } ${ use.number } ${ use.gender } ${ use.declension } ${ use.superiority } ${ use.partOfSpeech } (${ use.frequency.toLocaleString () })</p>`
