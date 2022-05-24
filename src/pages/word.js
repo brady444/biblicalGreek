@@ -71,6 +71,8 @@ pages.word = {
 						${ pageData.word.notes?.split ("\n").map (line => html
 							`<p class = "smallFont">${ line }</p>`
 						) }
+						
+						<p class = "extraSmallFont gray">Mounce, William D.. Basics of Biblical Greek Grammar (Zondervan Language Basics Series). Zondervan Academic. (text might be modified)</p>
 					</div>` :
 					null
 				}
@@ -91,8 +93,6 @@ pages.word = {
 					</div>` :
 					null
 				}
-				
-				${ SectionLink ("About", "about") }
 			</div>
 			
 			${ pageData.word.forms.length > 0 ? html

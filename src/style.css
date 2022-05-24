@@ -112,6 +112,10 @@ input, select {
 	height: 100%;
 }
 
+.halfWidth {
+	width: 50%;
+}
+
 .extraSmallGap {
 	gap: 5px;
 }

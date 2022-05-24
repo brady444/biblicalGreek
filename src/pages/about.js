@@ -5,28 +5,28 @@
 pages.about = {
 	content: () => html
 		`<div class = "pageContainer flexColumnTop extraExtraLargeGap mediumPadding">
-			<div class = "flexColumnTop smallGap">
-				<p class = "mediumFont">About this website:</p>
-				
-				<p class = "smallFont">Data may be taken from BillMounce.com, Basics of Biblical Greek, and GNTReader.com.</p>
-				
-				<p class = "smallFont">Data may be modified.</p>
-				
-				<p class = "smallFont">Data may be missing, old, or inaccurate.</p>
-				
+			<div class = "flexColumnTop halfWidth largeGap">
 				<p class = "smallFont">Contact: brady@bradywestveer.com</p>
+				
+				<p class = "smallFont">Some or all of the data on this website might be taken from or adapted from BillMounce.com, GNTReader.com, Basics of Biblical Greek Grammar (Zondervan Language Basics Series), and/or other outside sources.</p>
+				
+				<p class = "smallFont">Some or all of the data on this website might be modified from its original form.</p>
+				
+				<p class = "smallFont">Some or all of the data on this website might be missing, old, or inaccurate.</p>
+				
+				<p class = "extraSmallFont gray">Mounce, William D.. Basics of Biblical Greek Grammar (Zondervan Language Basics Series). Zondervan Academic. (text might be modified)</p>
 			</div>
 			
-			<div class = "flexColumnTop smallGap">
-				<p class = "mediumFont">Potential errors with data (errors may be missing, old, or inaccurate):</p>
+			<div class = "flexColumnTop halfWidth largeGap">
+				<p class = "smallFont">This website might use automated systems to retrieve and format data. These systems might output some potential inaccuracies or errors with the data. Some or all of the errors may be outdated or inaccurate. Some or all of the errors are listed below. Some of the errors might not be listed.</p>
 				
-				<div class = "flexColumnLeft">
+				<div class = "flexColumnLeft smallGap">
 					${ constants.vocabularyErrors.scraperErrors.map (error => html
-						`<p class = "smallFont">${ error }</p>`
+						`<p class = "extraSmallFont">${ error }</p>`
 					) }
 					
 					${ constants.vocabularyErrors.errors.map (error => html
-						`<p class = "smallFont">${ error }</p>`
+						`<p class = "extraSmallFont">${ error }</p>`
 					) }
 				</div>
 			</div>
