@@ -32,8 +32,6 @@ pages.parser = {
 								}
 								
 								if (forms.length > 0) {
-									word.lexicalForm = inputWords [i];
-									
 									word.forms = forms;
 									
 									pageData.parsedWords.push (word);
@@ -41,8 +39,6 @@ pages.parser = {
 							}
 							
 							else if (utilities.simplifyGreek (word.lexicalForm) === utilities.simplifyGreek (inputWords [i])) {
-								word.lexicalForm = inputWords [i];
-								
 								pageData.parsedWords.push (word);
 							}
 						}
