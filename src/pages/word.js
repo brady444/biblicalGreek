@@ -96,7 +96,7 @@ pages.word = {
 			</div>
 			
 			${ pageData.word.forms.length > 0 ? html
-				`<div class = "flexColumnLeft largeGap">
+				`<div class = "wordContainer flexColumnLeft largeGap">
 					${ pageData.word.forms.map (form => html
 						`<div class = "flexColumnLeft extraSmallGap">
 							<p class = "smallFont">${ form.text }</p>
