@@ -36,7 +36,7 @@ pages.practiceParsing = {
 				<div class = "fullWidth flexColumn mediumGap">
 					${ pageData.currentForm.uses.map (use => html
 						`${ Object.keys (use)
-							.filter (property => property !== "frequency" && property !== "partOfSpeech")
+							.filter (property => property !== "frequency" && property !== "partOfSpeech" && property !== "description")
 								.map (property => html
 									`<p class = "mediumFont">${ property.charAt (0).toUpperCase () + property.slice (1) }</p>
 									
