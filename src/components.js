@@ -3,7 +3,7 @@
 /* eslint-disable implicit-arrow-linebreak */
 
 const SectionGroup = content => html
-	`<div class = "sectionGroup flexColumn fullWidth largePadding">
+	`<div class = "sectionGroup fullWidth flexColumn largePadding">
 		<div class = "flexTop flexWrap extraExtraLargeGap">${ content }</div>
 	</div>`;
 
@@ -37,7 +37,7 @@ const ParadigmElement = (element, onclick) => html
 const Paradigm = (columnLabels, rows, elementClickCallback) => html
 	`<div id = "paradigm" class = "flexColumn smallGap mediumPadding">
 		${ columnLabels.length > 0 ? html
-			`<div class = "flex fullWidth smallGap">
+			`<div class = "fullWidth flex smallGap">
 				${ ParadigmLabel () }
 				
 				${ columnLabels.map (label => ParadigmLabel (label)) }
@@ -46,7 +46,7 @@ const Paradigm = (columnLabels, rows, elementClickCallback) => html
 		}
 		
 		${ rows.map (row => html
-			`<div class = "flex fullWidth smallGap">
+			`<div class = "fullWidth flex smallGap">
 				${ ParadigmLabel (row.label) }
 				
 				${ row.elements.map (element => ParadigmElement (element, elementClickCallback)) }

@@ -23,7 +23,7 @@ pages.dictionary = {
 	
 	content: () => html
 		`<div class = "pageContainer flexColumnTop">
-			<div class = "inputContainer flex mediumPadding">
+			<div class = "mediumWidth flex mediumPadding">
 				<input class = "fullWidth mediumFont" placeholder = "Search..." oninput = ${ event => {
 					pageData.setWords (constants.vocabulary.filter (word =>
 						utilities.simplifyGreek (word.lexicalForm).includes (utilities.simplifyGreek (utilities.englishToGreek (event.target.value.trim ())))

@@ -102,7 +102,7 @@ pages.word = {
 							<p class = "smallFont">${ form.text }</p>
 							
 							${ form.uses.map (use => html
-								`<p class = "smallFont gray">${ use.case } ${ use.tense } ${ use.voice } ${ use.mood } ${ use.person } ${ use.number } ${ use.gender } ${ use.declension } ${ use.superiority } ${ use.partOfSpeech } (${ use.frequency.toLocaleString () })</p>`
+								`<p class = "smallFont gray">${ use.description }</p>`
 							) }
 						</div>`
 					) }

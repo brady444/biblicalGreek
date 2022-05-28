@@ -33,7 +33,7 @@ a {
 	cursor: pointer;
 }
 
-input, select {
+input, select, button {
 	padding: 10px;
 	outline: none;
 	border: none;
@@ -41,6 +41,10 @@ input, select {
 	color: white;
 	font-family: Times New Roman;
 	box-sizing: border-box;
+}
+
+button:hover {
+	cursor: pointer;
 }
 
 .flex {
@@ -202,7 +206,17 @@ input, select {
 	overflow-y: overlay;
 }
 
-.inputContainer {
+.centerContainer {
+	margin: auto;
+}
+
+.smallWidth {
+	width: 300px;
+	max-width: 100%;
+	box-sizing: border-box;
+}
+
+.mediumWidth {
 	width: 600px;
 	max-width: 100%;
 	box-sizing: border-box;
