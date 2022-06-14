@@ -14,9 +14,6 @@ pages.practiceParsing = {
 		
 		pageData.reset = () => {
 			pageData.currentForm = utilities.randomElement (pageData.remainingForms);
-			
-			console.log (pageData.currentForm);
-			console.log (constants.formUseProperties);
 		};
 		
 		pageData.reset ();
@@ -29,14 +26,16 @@ pages.practiceParsing = {
 				
 				<div class = "flex mediumGap">
 					<input class = "fullWidth mediumFont" placeholder = "Lexical form..." />
-					
-					<button class = "mediumFont">Submit</button>
+				</div>
+				
+				<div class = "flex mediumGap">
+					<input class = "fullWidth mediumFont" placeholder = "Roots..." />
 				</div>
 				
 				<div class = "fullWidth flexColumn mediumGap">
 					${ pageData.currentForm.uses.map (use => html
 						`${ Object.keys (use)
-							.filter (property => property !== "frequency" && property !== "partOfSpeech" && property !== "description")
+							.filter (property => Object.keys (constants.formUseProperties).includes (property))
 								.map (property => html
 									`<p class = "mediumFont">${ property.charAt (0).toUpperCase () + property.slice (1) }</p>
 									
@@ -48,6 +47,8 @@ pages.practiceParsing = {
 						) }`
 					) }
 				</div>
+				
+				<button class = "mediumFont">Submit</button>
 			</div>
 		</div>`
 };
