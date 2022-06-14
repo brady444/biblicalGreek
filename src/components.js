@@ -56,5 +56,5 @@ const Paradigm = (columnLabels, rows, elementClickCallback) => html
 
 const Question = (text, underlined) => html
 	`<div class = "flex">
-		<p class = "extraExtraLargeFont">Where does <span class = ${ underlined ? "underlined" : null }>${ text }</span> go?</p>
+		<p class = "extraExtraLargeFont">Where does "<span class = ${ underlined ? "underlined" : null }>${ text }</span>" go?</p>
 	</div>`;
