@@ -41,7 +41,7 @@ pages.main = {
 			
 			${ SectionGroup ([
 				Section ("Other", [
-					SectionLink ("Windows Typing Guide", null, "https://www.ctsfw.edu/wp-content/uploads/2016/02/Greek-Unicode-Keyboard-Input-Windows-10.pdf"),
+					SectionLink ("Scrabble", "scrabble"),
 					
 					SectionLink ("About", "about")
 				])
