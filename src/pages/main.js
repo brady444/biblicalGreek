@@ -43,8 +43,6 @@ pages.main = {
 				Section ("Other", [
 					SectionLink ("Scrabble", "scrabble"),
 					
-					SectionLink ("Windows Typing Guide", null, "https://www.ctsfw.edu/wp-content/uploads/2016/02/Greek-Unicode-Keyboard-Input-Windows-10.pdf"),
-					
 					SectionLink ("About", "about")
 				])
 			]) }
