@@ -11,6 +11,7 @@ const utilities = {
 	simplifyGreek: text =>
 		text.normalize ("NFD")
 			.replaceAll (/\p{Diacritic}/gu, "")
+			.replaceAll ("Σ", "σ")
 			.replaceAll ("ς", "σ")
 			.replaceAll ("⸂", "")
 			.replaceAll ("⸃", "")

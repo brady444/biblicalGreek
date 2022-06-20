@@ -49,7 +49,7 @@ pages.scrabble = {
 					
 					for (let i = 0; i < Object.keys (pageData.words).length; i++) {
 						pageData.currentWords [Object.keys (pageData.words) [i]] = pageData.words [Object.keys (pageData.words) [i]].filter (word =>
-							word.text.toLowerCase ().includes (utilities.simplifyGreek (utilities.englishToGreek (event.target.value.trim ())))
+							utilities.simplifyGreek (word.text).includes (utilities.simplifyGreek (utilities.englishToGreek (event.target.value.trim ())))
 						);
 						
 						if (pageData.currentWords [Object.keys (pageData.words) [i]].length < 1) {
