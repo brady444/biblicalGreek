@@ -13,7 +13,7 @@ const browserSync = require ("browser-sync").create ();
 //todo linthtml?
 
 const lintcss = () =>
-	gulp.src ("src/*.css")
+	gulp.src ("src/**/*.css")
 		.pipe (styleLint ({
 			reporters: [
 				{
@@ -38,7 +38,7 @@ const lintjs = () =>
 		.pipe (esLint.failAfterError ());
 
 const minifyhtml = () =>
-	gulp.src ("src/*.html")
+	gulp.src ("src/**/*.html")
 		.pipe (htmlMinify ({
 			caseSensitive: true,
 			collapseBooleanAttributes: true,
@@ -63,7 +63,7 @@ const minifyhtml = () =>
 		.pipe (gulp.dest ("docs"));
 
 const minifycss = () =>
-	gulp.src ("src/*.css")
+	gulp.src ("src/**/*.css")
 		.pipe (cleanCss ({
 			level: 2
 		}))
@@ -78,7 +78,7 @@ const minifyjs = () =>
 
 const watch = callback => {
 	browserSync.init ({
-		server: "docs/",
+		server: "docs",
 		port: 81,
 		ui: false,
 		open: false,

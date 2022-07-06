@@ -15,7 +15,7 @@ pages.main = {
 				Section ("New Testament", [
 					SectionLink ("Reader", null, "https://www.gntreader.com"),
 					
-					SectionLink ("Interlinear", null, "https://www.abarim-publications.com/Interlinear-New-Testament")
+					SectionLink ("Interlinear", null, "https://bible.xojocloud.net/")
 				])
 			]) }
 			
