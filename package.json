@@ -2,13 +2,14 @@
 	"name": "biblicalgreek",
 	"version": "1.0.0",
 	"description": "Biblical Greek",
-	"scripts": {
-		"prepare": "husky install",
-		"start": "gulp watch"
-	},
+	"type": "module",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/brady444/biblicalGreek.git"
+	},
+	"scripts": {
+		"prepare": "husky install",
+		"start": "gulp watch"
 	},
 	"devDependencies": {
 		"browser-sync": "^2.27.7",

@@ -1,14 +1,14 @@
-"use strict";
+import gulp from "gulp";
+import styleLint from "gulp-stylelint";
+import esLint from "gulp-eslint-new";
+import htmlMinify from "gulp-htmlmin";
+import cleanCss from "gulp-clean-css";
+import uglify from "gulp-uglify";
+import concat from "gulp-concat";
+import replace from "gulp-replace";
+import _browserSync from "browser-sync";
 
-const gulp = require ("gulp");
-const styleLint = require ("gulp-stylelint");
-const esLint = require ("gulp-eslint-new");
-const htmlMinify = require ("gulp-htmlmin");
-const cleanCss = require ("gulp-clean-css");
-const uglify = require ("gulp-uglify");
-const concat = require ("gulp-concat");
-const replace = require ("gulp-replace");
-const browserSync = require ("browser-sync").create ();
+const browserSync = _browserSync.create ();
 
 //todo linthtml?
 
@@ -76,7 +76,9 @@ const minifyjs = () =>
 		.pipe (replace (/[\t\n]/gi, ""))
 		.pipe (gulp.dest ("docs"));
 
-const watch = callback => {
+gulp.task ("default", gulp.series (lintcss, lintjs, minifyhtml, minifycss, minifyjs));
+
+gulp.task ("watch", callback => {
 	browserSync.init ({
 		server: "docs",
 		port: 81,
@@ -98,15 +100,4 @@ const watch = callback => {
 	series ();
 	
 	callback ();
-};
-
-module.exports = {
-	lintcss: lintcss,
-	lintjs: lintjs,
-	minifyhtml: minifyhtml,
-	minifycss: minifycss,
-	minifyjs: minifyjs,
-	watch: watch,
-	
-	default: gulp.series (lintcss, lintjs, minifyhtml, minifycss, minifyjs)
-};
+});

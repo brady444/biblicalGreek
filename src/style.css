@@ -241,7 +241,7 @@ button:hover {
 }
 
 .paradigmElementText {
-	min-width: 7.5vmin;
+	width: 7.5vmin;
 	height: 7.5vmin;
 	background-color: #444;
 	cursor: pointer;
