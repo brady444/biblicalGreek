@@ -11,6 +11,10 @@ pages.scrabble = {
 				return;
 			}
 			
+			if (word.text.includes (" ")) {
+				return;
+			}
+			
 			if (pageData.words [word.text.length] === undefined) {
 				pageData.words [word.text.length] = [];
 			}
