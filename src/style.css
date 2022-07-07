@@ -19,13 +19,13 @@ body {
 
 p, a, pre {
 	margin: 0;
-	color: white;
 	text-align: center;
-	text-decoration: none;
 	font-family: Times New Roman;
 }
 
 a {
+	color: white;
+	text-decoration: none;
 	cursor: pointer;
 }
 
@@ -34,7 +34,6 @@ input, select, button {
 	outline: none;
 	border: none;
 	background: #2C2C2C;
-	color: white;
 	font-family: Times New Roman;
 	box-sizing: border-box;
 }

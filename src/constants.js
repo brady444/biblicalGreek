@@ -510,17 +510,13 @@ const constants = {
 		εἰμί: {
 			name: "εἰμί",
 			
-			columnLabels: [],
-			
 			rows: [
 				{
 					label: "1st Person\nSingular",
 					
 					elements: [
 						{ text: "εἰμί" },
-						
 						{ answered: true },
-						
 						{ answered: true }
 					]
 				},
@@ -530,9 +526,7 @@ const constants = {
 					
 					elements: [
 						{ text: "εἶ" },
-						
 						{ answered: true },
-						
 						{ answered: true }
 					]
 				},
@@ -542,9 +536,7 @@ const constants = {
 					
 					elements: [
 						{ text: "ἐστίν" },
-						
 						{ answered: true },
-						
 						{ answered: true }
 					]
 				},
@@ -554,9 +546,7 @@ const constants = {
 					
 					elements: [
 						{ text: "ἐσμέν" },
-						
 						{ answered: true },
-						
 						{ answered: true }
 					]
 				},
@@ -566,9 +556,7 @@ const constants = {
 					
 					elements: [
 						{ text: "ἐστέ" },
-						
 						{ answered: true },
-						
 						{ answered: true }
 					]
 				},
@@ -578,9 +566,343 @@ const constants = {
 					
 					elements: [
 						{ text: "εἰσίν" },
-						
 						{ answered: true },
-						
+						{ answered: true }
+					]
+				}
+			]
+		},
+		
+		ὕδωρ: {
+			rows: [
+				{
+					label: "Nominative\nSingular",
+					
+					elements: [
+						{ text: "ὕδωρ" },
+						{ answered: true },
+						{ answered: true }
+					]
+				},
+				
+				{
+					label: "Genitive\nSingular",
+					
+					elements: [
+						{ text: "ὕδατος" },
+						{ answered: true },
+						{ answered: true }
+					]
+				},
+				
+				{
+					label: "Dative\nSingular",
+					
+					elements: [
+						{ text: "ὕδατι" },
+						{ answered: true },
+						{ answered: true }
+					]
+				},
+				
+				{
+					label: "Accusative\nSingular",
+					
+					elements: [
+						{ text: "ὕδωρ" },
+						{ answered: true },
+						{ answered: true }
+					]
+				},
+				
+				{
+					label: "Nominative\nPlural",
+					
+					elements: [
+						{ text: "ὕδατα" },
+						{ answered: true },
+						{ answered: true }
+					]
+				},
+				
+				{
+					label: "Genitive\nPlural",
+					
+					elements: [
+						{ text: "ὑδάτων" },
+						{ answered: true },
+						{ answered: true }
+					]
+				},
+				
+				{
+					label: "Dative\nPlural",
+					
+					elements: [
+						{ text: "ὕδασι(ν)" },
+						{ answered: true },
+						{ answered: true }
+					]
+				},
+				
+				{
+					label: "Accusative\nPlural",
+					
+					elements: [
+						{ text: "ὕδατα" },
+						{ answered: true },
+						{ answered: true }
+					]
+				}
+			]
+		},
+		
+		πατήρ: {
+			rows: [
+				{
+					label: "Nominative\nSingular",
+					
+					elements: [
+						{ text: "πατήρ" },
+						{ answered: true },
+						{ answered: true }
+					]
+				},
+				
+				{
+					label: "Genitive\nSingular",
+					
+					elements: [
+						{ text: "πατρός" },
+						{ answered: true },
+						{ answered: true }
+					]
+				},
+				
+				{
+					label: "Dative\nSingular",
+					
+					elements: [
+						{ text: "πατρί" },
+						{ answered: true },
+						{ answered: true }
+					]
+				},
+				
+				{
+					label: "Accusative\nSingular",
+					
+					elements: [
+						{ text: "πατέρα" },
+						{ answered: true },
+						{ answered: true }
+					]
+				},
+				
+				{
+					label: "Nominative\nPlural",
+					
+					elements: [
+						{ text: "πατέρες" },
+						{ answered: true },
+						{ answered: true }
+					]
+				},
+				
+				{
+					label: "Genitive\nPlural",
+					
+					elements: [
+						{ text: "πατέρων" },
+						{ answered: true },
+						{ answered: true }
+					]
+				},
+				
+				{
+					label: "Dative\nPlural",
+					
+					elements: [
+						{ text: "πατράσι(ν)" },
+						{ answered: true },
+						{ answered: true }
+					]
+				},
+				
+				{
+					label: "Accusative\nPlural",
+					
+					elements: [
+						{ text: "πατέρας" },
+						{ answered: true },
+						{ answered: true }
+					]
+				}
+			]
+		},
+		
+		μήτηρ: {
+			rows: [
+				{
+					label: "Nominative\nSingular",
+					
+					elements: [
+						{ text: "μήτηρ" },
+						{ answered: true },
+						{ answered: true }
+					]
+				},
+				
+				{
+					label: "Genitive\nSingular",
+					
+					elements: [
+						{ text: "μητρός" },
+						{ answered: true },
+						{ answered: true }
+					]
+				},
+				
+				{
+					label: "Dative\nSingular",
+					
+					elements: [
+						{ text: "μητρί" },
+						{ answered: true },
+						{ answered: true }
+					]
+				},
+				
+				{
+					label: "Accusative\nSingular",
+					
+					elements: [
+						{ text: "μητέρα" },
+						{ answered: true },
+						{ answered: true }
+					]
+				},
+				
+				{
+					label: "Nominative\nPlural",
+					
+					elements: [
+						{ text: "–" },
+						{ answered: true },
+						{ answered: true }
+					]
+				},
+				
+				{
+					label: "Genitive\nPlural",
+					
+					elements: [
+						{ text: "–" },
+						{ answered: true },
+						{ answered: true }
+					]
+				},
+				
+				{
+					label: "Dative\nPlural",
+					
+					elements: [
+						{ text: "–" },
+						{ answered: true },
+						{ answered: true }
+					]
+				},
+				
+				{
+					label: "Accusative\nPlural",
+					
+					elements: [
+						{ text: "μητέρας" },
+						{ answered: true },
+						{ answered: true }
+					]
+				}
+			]
+		},
+		
+		ἀνήρ: {
+			rows: [
+				{
+					label: "Nominative\nSingular",
+					
+					elements: [
+						{ text: "ἀνήρ" },
+						{ answered: true },
+						{ answered: true }
+					]
+				},
+				
+				{
+					label: "Genitive\nSingular",
+					
+					elements: [
+						{ text: "ἀνδρός" },
+						{ answered: true },
+						{ answered: true }
+					]
+				},
+				
+				{
+					label: "Dative\nSingular",
+					
+					elements: [
+						{ text: "ἀνδρί" },
+						{ answered: true },
+						{ answered: true }
+					]
+				},
+				
+				{
+					label: "Accusative\nSingular",
+					
+					elements: [
+						{ text: "ἄνδρα" },
+						{ answered: true },
+						{ answered: true }
+					]
+				},
+				
+				{
+					label: "Nominative\nPlural",
+					
+					elements: [
+						{ text: "ἄνδρες" },
+						{ answered: true },
+						{ answered: true }
+					]
+				},
+				
+				{
+					label: "Genitive\nPlural",
+					
+					elements: [
+						{ text: "ἀνδρῶν" },
+						{ answered: true },
+						{ answered: true }
+					]
+				},
+				
+				{
+					label: "Dative\nPlural",
+					
+					elements: [
+						{ text: "ἀνδράσι(ν)" },
+						{ answered: true },
+						{ answered: true }
+					]
+				},
+				
+				{
+					label: "Accusative\nPlural",
+					
+					elements: [
+						{ text: "ἄνδρας" },
+						{ answered: true },
 						{ answered: true }
 					]
 				}

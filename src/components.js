@@ -36,13 +36,12 @@ const ParadigmElement = (element, onclick) => html
 
 const Paradigm = (columnLabels, rows, elementClickCallback) => html
 	`<div id = "paradigm" class = "flexColumn smallGap mediumPadding">
-		${ columnLabels.length > 0 ? html
+		${ columnLabels === undefined ? null : html
 			`<div class = "fullWidth flex smallGap">
 				${ ParadigmLabel () }
 				
 				${ columnLabels.map (label => ParadigmLabel (label)) }
-			</div>` :
-			null
+			</div>`
 		}
 		
 		${ rows.map (row => html
