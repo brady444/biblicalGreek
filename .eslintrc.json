@@ -96,15 +96,9 @@
 		"arrow-body-style": "error",
 		"block-scoped-var": "error",
 		"camelcase": "error",
-		
 		"capitalized-comments": ["error", "never"],
-		
 		"class-methods-use-this": "error",
-		
-		"complexity": ["error", {
-			"max": 30
-		}],
-		
+		"complexity": "off",
 		"consistent-return": "off",
 		"consistent-this": "error",
 		"curly": "error",
@@ -227,7 +221,7 @@
 		"operator-assignment": "error",
 		"prefer-arrow-callback": "error",
 		"prefer-const": "error",
-		"prefer-destructuring": "error",
+		"prefer-destructuring": "off",
 		"prefer-exponentiation-operator": "error",
 		"prefer-named-capture-group": "off",
 		"prefer-numeric-literals": "error",
@@ -313,9 +307,7 @@
 		
 		"no-whitespace-before-property": "off",
 		"nonblock-statement-body-position": ["error", "below"],
-		
 		"object-curly-newline": "error",
-		
 		"object-curly-spacing": ["error", "always"],
 		
 		"object-property-newline": ["error", {
@@ -341,7 +333,9 @@
 			{ "blankLine": "any", "prev": "*", "next": "expression" },
 			
 			{ "blankLine": "any", "prev": "import", "next": "*" },
-			{ "blankLine": "any", "prev": "*", "next": "import" }
+			{ "blankLine": "any", "prev": "*", "next": "import" },
+			
+			{ "blankLine": "any", "prev": "case", "next": "case" }
 		],
 		
 		"quotes": "error",
