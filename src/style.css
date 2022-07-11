@@ -20,11 +20,11 @@ body {
 p, a, pre {
 	margin: 0;
 	text-align: center;
+	color: white;
 	font-family: Times New Roman;
 }
 
 a {
-	color: white;
 	text-decoration: none;
 	cursor: pointer;
 }
