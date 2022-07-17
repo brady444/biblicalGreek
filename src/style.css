@@ -31,6 +31,7 @@ a {
 
 input, select, button {
 	padding: 10px;
+	color: white;
 	outline: none;
 	border: none;
 	background: #2C2C2C;
